@@ -1,0 +1,26 @@
+{
+  "name": "drupal/cucumber_demos",
+  "type": "drupal-module",
+  "description": "Cucumber Demos is a demo content for the Cucumber profile installation website, and includes three levels: Small, Medium, Big content",
+  "minimum-stability": "dev",
+  "authors": [
+    {
+      "name": "Webship",
+      "homepage": "http://webship.org",
+      "role": "Maintainer"
+    }
+  ],
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/cucumber_demos",
+    "source": "http://cgit.drupalcode.org/cucumber_demos"
+  },
+  "repositories": {
+    "drupal": {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8"
+    }
+  },
+  "require": {
+    "drupal/core": "~10.0"
+  }
+}
