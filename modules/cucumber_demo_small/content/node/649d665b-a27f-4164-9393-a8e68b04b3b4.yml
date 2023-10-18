@@ -9,7 +9,7 @@ _meta:
     d8b812c1-44c0-46c3-9ba5-43e6843b134b: media
     d690fb4b-fb09-48f9-b9b2-260142d32ea6: media
     8c1132c4-0517-468b-b28b-3ed7cd2a969d: media
-    c8ec754a-54ce-44db-8197-0c62fd260099: file
+    1a5af4e1-e3d3-4d74-861c-d2fbe29da476: file
 default:
   revision_uid:
     -
@@ -59,7 +59,7 @@ default:
       options: {  }
   field_project_logo:
     -
-      entity: c8ec754a-54ce-44db-8197-0c62fd260099
+      entity: 1a5af4e1-e3d3-4d74-861c-d2fbe29da476
       alt: Webship.co
       title: ''
       width: 48
