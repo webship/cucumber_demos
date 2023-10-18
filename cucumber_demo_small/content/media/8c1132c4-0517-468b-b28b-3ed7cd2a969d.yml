@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 8c1132c4-0517-468b-b28b-3ed7cd2a969d
+  bundle: feature
+  default_langcode: en
+  depends:
+    0292d685-a4e7-4b0d-b563-db44581211a9: taxonomy_term
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: 'Check the documentation page'
+  created:
+    -
+      value: 1696555618
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: to_do
+  directory:
+    -
+      entity: 0292d685-a4e7-4b0d-b563-db44581211a9
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_description:
+    -
+      value: "Scenario: Check documentation\r\nScenario: Check the box information"
+      format: plain_text
+  field_media_gherkin:
+    -
+      value: "Feature: Check the documentation page\r\n  As an anonymous user\r\n  I want to be able to visit the documentation page\r\n  So that I know that the webship.co site is working\r\n\r\n  Scenario: Check documentation\r\n    Given I am on \"/documentation\"\r\n     Then I should see \"Documentation\"\r\n      And I should have a working header\r\n      And I should have a working footer\r\n\r\n  Scenario: Check the box information\r\n    Given I am on \"/documentation\"\r\n     Then I should see \"Webship JS\"\r\n      And I should see \"Integrations\"\r\n"
+      format: gherkin

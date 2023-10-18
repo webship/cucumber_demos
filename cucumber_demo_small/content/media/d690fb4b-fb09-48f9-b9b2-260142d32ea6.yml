@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: d690fb4b-fb09-48f9-b9b2-260142d32ea6
+  bundle: feature
+  default_langcode: en
+  depends:
+    9b16df04-b8cd-4929-a6b9-54a5331d0f9d: taxonomy_term
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: 'Check the blog page'
+  created:
+    -
+      value: 1696555581
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: to_do
+  directory:
+    -
+      entity: 9b16df04-b8cd-4929-a6b9-54a5331d0f9d
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_description:
+    -
+      value: 'Scenario: Check blog'
+      format: plain_text
+  field_media_gherkin:
+    -
+      value: "Feature: Check the blog page\r\n  As an anonymous user\r\n  I want to be able to visit the blog page\r\n  So that I know that the webship.co site is working\r\n\r\n  Scenario: Check blog\r\n    Given I am on \"/blog\"\r\n     Then I should see \"Blog\"\r\n"
+      format: gherkin

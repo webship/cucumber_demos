@@ -1,0 +1,69 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 649d665b-a27f-4164-9393-a8e68b04b3b4
+  bundle: project
+  default_langcode: en
+  depends:
+    bef46b9a-eb45-4241-84fa-0d0ebe045456: media
+    d8b812c1-44c0-46c3-9ba5-43e6843b134b: media
+    d690fb4b-fb09-48f9-b9b2-260142d32ea6: media
+    8c1132c4-0517-468b-b28b-3ed7cd2a969d: media
+    c8ec754a-54ce-44db-8197-0c62fd260099: file
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Webship Co'
+  created:
+    -
+      value: 1696555257
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      alias: /projects/webship-co
+      langcode: en
+      pathauto: 1
+  field_description:
+    -
+      value: 'WebShipCo is a company that works with automated functional testing of products (websites), so you can subscribe to their official website and test your site quickly and easily, or you can contact them if you want to get a special test for your site/s.'
+  field_features:
+    -
+      entity: bef46b9a-eb45-4241-84fa-0d0ebe045456
+    -
+      entity: d8b812c1-44c0-46c3-9ba5-43e6843b134b
+    -
+      entity: d690fb4b-fb09-48f9-b9b2-260142d32ea6
+    -
+      entity: 8c1132c4-0517-468b-b28b-3ed7cd2a969d
+  field_project_link:
+    -
+      uri: 'https://webship.co'
+      title: ''
+      options: {  }
+  field_project_logo:
+    -
+      entity: c8ec754a-54ce-44db-8197-0c62fd260099
+      alt: Webship.co
+      title: ''
+      width: 48
+      height: 48
+  field_project_name:
+    -
+      value: WSCO

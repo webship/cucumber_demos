@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: taxonomy_term
+  uuid: 9b16df04-b8cd-4929-a6b9-54a5331d0f9d
+  bundle: feature_directory
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  name:
+    -
+      value: Links
+  weight:
+    -
+      value: 0
+  parent:
+    -
+      target_id: 0
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
