@@ -1,3 +1,3 @@
-# Cucumber Demo Big
+# Cucumber Demo Medium
 
-A big demo content for the Cucumber profile installation website.
+A medium demo content for the Cucumber profile installation website.
