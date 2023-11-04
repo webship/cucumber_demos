@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: e774111c-b2f9-4cca-ad29-24410bf75f0b
+  bundle: feature
+  default_langcode: en
+  depends:
+    3ee547ba-2445-4dce-bfe7-d6b68878eea2: taxonomy_term
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: '01-04 Website Base Requirements - Website Languages - English'
+  created:
+    -
+      value: 1699106139
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: to_do
+  directory:
+    -
+      entity: 3ee547ba-2445-4dce-bfe7-d6b68878eea2
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_description:
+    -
+      value: "Scenario: Check if a content admin user can Create Basic page with English for the language of the content\r\nScenario: Check if a content admin user can Create Landing page with English for the language of the content\r\nScenario: Check if a site admin user can Create Basic page with English for the language of the content\r\nScenario: Check if a site admin user can can Create Landing page with English for the language of the content\r\n"
+      format: plain_text
+  field_media_gherkin:
+    -
+      value: "Feature: Website Base Requirements - Website Languages - English\r\nAs a logged in user with the permission to add content\r\nI want to be able to check if the site has got the English language Enabled\r\nSo that can be sure that the website is using the English language as one of the languages.\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check if a content admin user can Create Basic page with English for the language of the content\r\n    Given I am a logged in user with the \"Content admin\" user\r\n      And I go to \"/node/add/page\"\r\n      And wait\r\n     When I select \"English\" from \"Language\"\r\n     Then I should see \"Language\"\r\n     When I select \"English\" from \"Language\"\r\n      And I fill in \"Test English Basic page title by content admin\" for \"Title\"\r\n      And I fill in the rich text editor field \"Body\" with \"Test English Basic page body\"\r\n      And I select \"published\" from \"edit-moderation-state-0-state\"\r\n      And I press the \"Save\" button\r\n      And wait\r\n     Then I should see \"Test English Basic page title by content admin\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check if a content admin user can Create Landing page with English for the language of the content\r\n    Given I am a logged in user with the \"Content admin\" user\r\n      And I go to \"/node/add/landing_page\"\r\n      And wait\r\n     When I select \"English\" from \"Language\"\r\n     Then I should see \"Language\"\r\n     When I select \"English\" from \"Language\"\r\n      And I fill in \"Test English Landing page title by content admin\" for \"Title\"\r\n      And I select \"published\" from \"edit-moderation-state-0-state\"\r\n      And I press the \"Save\" button\r\n      And wait\r\n     Then I should see \"Test English Landing page title by content admin\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check if a site admin user can Create Basic page with English for the language of the content\r\n    Given I am a logged in user with the \"Site admin\" user\r\n      And I go to \"/node/add/page\"\r\n      And wait\r\n     When I select \"English\" from \"Language\"\r\n     Then I should see \"Language\"\r\n     When I select \"English\" from \"Language\"\r\n      And I fill in \"Test English Basic page title by site admin\" for \"Title\"\r\n      And I fill in the rich text editor field \"Body\" with \"Test English Basic page body\"\r\n      And I select \"published\" from \"edit-moderation-state-0-state\"\r\n      And I press the \"Save\" button\r\n      And wait\r\n     Then I should see \"Test English Basic page title by site admin\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check if a site admin user can can Create Landing page with English for the language of the content\r\n    Given I am a logged in user with the \"Site admin\" user\r\n      And I go to \"/node/add/landing_page\"\r\n      And wait\r\n     When I select \"English\" from \"Language\"\r\n     Then I should see \"Language\"\r\n     When I select \"English\" from \"Language\"\r\n      And I fill in \"Test English Landing page title by site admin\" for \"Title\"\r\n      And I select \"published\" from \"edit-moderation-state-0-state\"\r\n      And I press the \"Save\" button\r\n      And wait\r\n     Then I should see \"Test English Landing page title by site admin\""
+      format: gherkin

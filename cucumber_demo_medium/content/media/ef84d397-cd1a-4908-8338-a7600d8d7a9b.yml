@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: ef84d397-cd1a-4908-8338-a7600d8d7a9b
+  bundle: feature
+  default_langcode: en
+  depends:
+    a9836901-356c-40ee-bc1b-f0e6986249d2: taxonomy_term
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: '04-04 Content Structure - Landing page (Paragraphs) - Varbase text and image paragraphs'
+  created:
+    -
+      value: 1699108446
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: to_do
+  directory:
+    -
+      entity: a9836901-356c-40ee-bc1b-f0e6986249d2
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_description:
+    -
+      value: "Scenario: Upload the Embed Flag Earth file\r\nScenario: Check if a user with a permission to manage Landing page (Paragraphs) content type create a new Landing page\r\n"
+      format: plain_text
+  field_media_gherkin:
+    -
+      value: "Feature: Content Structure - Landing page (Paragraphs) - Varbase text and image paragraphs\r\nAs a logged in user with a permission to mange Landing page (Paragraphs)\r\nI want to be able to add number of Text and image paragraph compoments\r\nSo that the \"Landing page (Paragraphs)\" will have text and images in right and left view.\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Upload the Embed Flag Earth file\r\n     Given I am a logged in user with the \"Site admin\" user\r\n      When I go to \"/media/add/image\"\r\n       And wait\r\n      Then I should see \"Allowed types: png gif jpg jpeg.\"\r\n      When I attach the file \"flag-earth.jpg\" to \"edit-field-media-image-0-upload\"\r\n       And wait\r\n       And I press the \"Save\" button\r\n       And wait\r\n       And I fill in \"Embed Flag Earth in space\" for \"field_media_image[0][alt]\"\r\n       And I fill in \"Embed Flag Earth all earth in space\" for \"field_media_image[0][title]\"\r\n       And I fill in \"Embed Flag Earth\" for \"name[0][value]\"\r\n       And I check the box \"Show in media library\"\r\n       And I press the \"Save\" button\r\n       And wait\r\n      Then I should see \"Embed Flag Earth\"\r\n  #-----------------------------------------------------------------------------\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check if a user with a permission to manage Landing page (Paragraphs) content type create a new Landing page\r\n\r\n    Given I am a logged in user with the \"Site admin\" user\r\n     When I go to \"/node/add/landing_page\"\r\n      And wait\r\n      And I fill in \"Test landing page title for text and image paragraphs\" for \"Title\"\r\n      And I fill in \"Test landing page body description.\" for \"Page description\"\r\n     When I press \"Add Component\"\r\n      And I wait for AJAX to finish\r\n      And I wait for 1 second\r\n      And I select the \"text_and_image\" paragraph component\r\n      And I wait for AJAX to finish\r\n     Then I should see \"Text and image\"\r\n      And I should see \"No media items are selected.\"\r\n     When I press \"field_image-media-library-open-button-field_lp_paragraphs-0-subform\"\r\n      And I wait for AJAX to finish\r\n      And I should see \"Name\"\r\n     When I fill in \"Flag Earth\" for \"Name\"\r\n      And I press the \"Apply filters\" button\r\n      And I wait for AJAX to finish\r\n     Then I should see image with the \"Flag Earth all earth in space\" title text\r\n     When I check the box \"media_library_select_form[0]\"\r\n      And I wait for AJAX to finish\r\n      And I press \"dialog-submit\"\r\n      And I wait for AJAX to finish\r\n      And I scroll up\r\n     Then I should see \"The maximum number of media items have been selected.\"\r\n     When I click \"Text\"\r\n      And I fill in the rich text editor field \"Text\" with \"In eros ipsum, mattis vitae vulputate eu, blandit non risus. Maecenas ultricies volutpat massa id hendrerit. Phasellus magna quam, lacinia sed justo pulvinar, tristique finibus felis. Quisque in sagittis tellus. Curabitur in est at quam maximus elementum. Pellentesque interdum tincidunt nisl, ac efficitur elit aliquam id. Integer egestas neque ut risus tincidunt semper.\"\r\n      And wait\r\n      And I select \"published\" from \"edit-moderation-state-0-state\"\r\n      And I press the \"Save\" button\r\n      And wait\r\n     Then I should see \"In eros ipsum, mattis vitae vulputate eu, blandit\"\r\n      And I should see image with the \"Embed Flag Earth in space\" alt text"
+      format: gherkin

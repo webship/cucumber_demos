@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 9c14892e-4f0e-4128-a66c-259dcab5d330
+  bundle: feature
+  default_langcode: en
+  depends:
+    29abfb79-9eda-4d44-aab2-8473c7d64f00: taxonomy_term
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: '05-06 Content Editing - Rich Text Editor - Easy linking to internal content by searching for content by its titles'
+  created:
+    -
+      value: 1699109602
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: to_do
+  directory:
+    -
+      entity: 29abfb79-9eda-4d44-aab2-8473c7d64f00
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_description:
+    -
+      value: "Scenario: Check if inserted raw URL will convert into a link when we save when We are using the Visual editor text format\r\n"
+      format: plain_text
+  field_media_gherkin:
+    -
+      value: "Feature: Content Editing - Rich Text Editor - Easy linking to internal content by searching for content by its titles\r\nAs a content admin\r\nI want to be able to add internal links searching the title of an internal content\r\nSo that will ease the work of adding internal links in the rich text editor fields.\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check if inserted raw URL will convert into a link when we save when We are using the Visual editor text format\r\n    Given I am a logged in user with the \"Site admin\" user\r\n     When I go to \"/node/add/page\"\r\n      And wait\r\n     Then I should see \"Create Basic page\"\r\n     When I select \"full_html\" from \"Text format\"\r\n      And I fill in \"Linking to internal content #1 title\" for \"Title\"\r\n      And I fill in the rich text editor field \"Body\" with \"Linking to internal content #1 body\"\r\n      And I select \"published\" from \"edit-moderation-state-0-state\"\r\n      And I press the \"Save\" button\r\n      And wait\r\n     Then I should see \"Linking to internal content #1 body\"\r\n     When I go to \"/node/add/page\"\r\n      And wait\r\n     Then I should see \"Create Basic page\"\r\n     When I select \"full_html\" from \"Text format\"\r\n      And I fill in \"Linking to internal content #2 title\" for \"Title\"\r\n      And I fill in the rich text editor field \"Body\" with \" Linking to internal content #2 body \"\r\n      And I click on \"Link\" command button in the rich text editor field \"Body\"\r\n      And I wait for AJAX to finish\r\n      And I wait 2s\r\n      And I wait for AJAX to finish\r\n     Then I should see \"Link URL\"\r\n     When I fill in \"Linking\" for \"Link URL\"\r\n      And I press the \" \" key in the \"Link URL\" field\r\n      And I press the \"t\" key in the \"Link URL\" field\r\n      And I press the \"o\" key in the \"Link URL\" field\r\n      And I press the \"enter\" key in the \"Link URL\" field\r\n      And I wait for AJAX to finish\r\n      And I wait 2s\r\n      And I wait for AJAX to finish\r\n     Then I should see \"Linking to internal content #1 title\"\r\n     When I click \"Linking to internal content #1 title\" in the \"ul\" element with the \"class\" attribute set to \"ui-autocomplete\"\r\n      And I wait for AJAX to finish\r\n      And I wait 2s\r\n      And I wait for AJAX to finish\r\n      And I click on the save button in \"Body\" rich text editor field\r\n      And wait\r\n      And I select \"published\" from \"edit-moderation-state-0-state\"\r\n      And I press the \"Save\" button\r\n      And wait\r\n      And I should see \"Linking to internal content #2 body\""
+      format: gherkin

@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: ff9a2402-c0e5-496e-946b-05e6d3b7592f
+  bundle: feature
+  default_langcode: en
+  depends:
+    a6cd792a-e9f7-450e-83d6-3dc3e7e3f4f6: taxonomy_term
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: '03-00 Pre-check important administrator and development pages'
+  created:
+    -
+      value: 1699107090
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: to_do
+  directory:
+    -
+      entity: a6cd792a-e9f7-450e-83d6-3dc3e7e3f4f6
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_description:
+    -
+      value: "Scenario: Check the content page\r\nScenario: Check the Homepage content with Layout Builder\r\nScenario: Check Files admin page\r\nScenario: Check Media Grid admin page\r\nScenario: Check Media Table admin page\r\nScenario: Check the structure page\r\nScenario: Check the views page\r\nScenario: Check the Appearance page\r\nScenario: Check active type of media types\r\nScenario: Check Varbase update instructions page\r\nScenario: Check Varbase default Reroute Email settings\r\nScenario: Check Varbase password suggestions settings\r\nScenario: Check password policy constraints\r\n\r\n"
+      format: plain_text
+  field_media_gherkin:
+    -
+      value: "Feature: Pre-check important administrator and development pages\r\nAs a site admin user\r\nI want to be able to make sure that all admin and development tools are working\r\nSo that I can use them after the install or update.\r\n\r\n  Background:\r\n    Given I am a logged in user with the \"webmaster\" user\r\n\r\n  @javascript @check @local @development @staging @production\r\n  Scenario: Check the content page\r\n     When I go to \"/admin/content\"\r\n      And wait\r\n     Then I should see \"Content\"\r\n\r\n  @javascript @check @local @development @staging @production\r\n  Scenario: Check the Homepage content with Layout Builder\r\n     When I go to \"/admin/content\"\r\n      And wait\r\n     Then I should see \"Homepage\"\r\n      And I should see \"Landing page (Layout Builder)\" in the \"Homepage\" row\r\n\r\n   @javascript @check @local @development @staging @production\r\n   Scenario: Check Files admin page\r\n      When I go to \"/admin/content/files\"\r\n       And wait\r\n      Then I should see \"Files\"\r\n\r\n   @javascript @check @local @development @staging @production\r\n   Scenario: Check Media Grid admin page\r\n      When I go to \"/admin/content/media\"\r\n       And wait\r\n      Then I should see \"Media\"\r\n\r\n   @javascript @check @local @development @staging @production\r\n   Scenario: Check Media Table admin page\r\n      When I go to \"/admin/content/media\"\r\n       And wait\r\n      Then I should see \"Media\"\r\n       And I should see \"Thumbnail\"\r\n       And I should see \"Cover Image\"\r\n       And I should see \"Media name\"\r\n       And I should see \"Type\"\r\n       And I should see \"Author\"\r\n       And I should see \"Status\"\r\n       And I should see \"Updated\"\r\n       And I should see \"Operations\"\r\n\r\n  @javascript @check @local @development @staging @production\r\n  Scenario: Check the structure page\r\n     When I go to \"/admin/structure\"\r\n      And wait\r\n     Then I should see \"Block layout\"\r\n      And I should see \"Content types\"\r\n      And I should see \"Display Suite\"\r\n      And I should see \"Display modes\"\r\n      And I should see \"Entityqueues\"\r\n      And I should see \"Media types\"\r\n      And I should see \"Menu position rules\"\r\n      And I should see \"Menus\"\r\n      And I should see \"Paragraph types\"\r\n      And I should see \"Taxonomy\"\r\n      And I should see \"Views\"\r\n      And I should see \"Webforms\"\r\n\r\n  @javascript @check @local @development @staging @production\r\n  Scenario: Check the views page\r\n     When I go to \"/admin/structure/views\"\r\n      And wait\r\n     Then I should see \"Views\"\r\n      And I should see \"Browser\"\r\n      And I should see \"Media Hero Slider\"\r\n\r\n  @javascript @check @local @development @staging @production\r\n  Scenario: Check the Appearance page\r\n     When I go to \"/admin/appearance\"\r\n      And wait\r\n     Then I should see \"Appearance\"\r\n      And I should see \"Vartheme BS5\"\r\n      And I should see \"Starterkit theme for Varbase standard websites. Based on Bootstrap 5 framework using SASS.\"\r\n      And I should see \"Claro\"\r\n      And I should see \"Gin\"\r\n      And I should see \"Vartheme Claro\"\r\n      And I should see \"A modern administration theme for Varbase standard websites. Based on the Gin Admin Theme and Claro Drupal core admin theme.\"\r\n\r\n   @javascript @check @local @development @staging @production\r\n   Scenario: Check active type of media types\r\n      When I go to \"/media/add\"\r\n       And wait\r\n      Then I should see \"File\"\r\n       And I should see \"Image\"\r\n       And I should see \"Video\"\r\n       And I should see \"Remote video\"\r\n       And I should see \"Audio\"\r\n       And I should see \"Instagram\"\r\n       And I should see \"Tweet\"\r\n\r\n   @javascript @check @local @development @staging @production\r\n   Scenario: Check Varbase update instructions page\r\n      When I go to \"/admin/config/development/update-helper\"\r\n       And wait\r\n      Then I should see \"Varbase update instructions\"\r\n       And I should see \"100%\"\r\n       And I should not see \"Pending updates\"\r\n\r\n   @javascript @check @local @development @staging\r\n   Scenario: Check Varbase default Reroute Email settings\r\n      When I go to \"/admin/config/development/reroute_email\"\r\n       And wait\r\n      Then I should see \"Reroute Email\"\r\n       And the \"edit-enable\" checkbox is checked\r\n       And I should see \"dev-catchall@vardot.com\" value in the \"edit-address\" input element\r\n       And I should see \"*@vardot.com\" value in the \"edit-allowed\" input element\r\n       And the \"edit-description\" checkbox is checked\r\n       And the \"edit-message\" checkbox is checked\r\n\r\n   @javascript @check @local @development @staging\r\n   Scenario: Check Varbase password suggestions settings\r\n      When I go to \"admin/config/system/varbase/varbase-security/password-suggestions-settings\"\r\n       And wait\r\n      Then I should see \"Password Suggestions settings\"\r\n       And I should see \"Passwords match:\" value in the \"edit-confirmtitle\" input element\r\n       And I should see \"yes\" value in the \"edit-confirmsuccess\" input element\r\n       And I should see \"no\" value in the \"edit-confirmfailure\" input element\r\n       And I should see \"Password strength:\" value in the \"edit-strengthtitle\" input element\r\n       And I should see \"Recommendations to make your password stronger:\" value in the \"edit-hasweaknesses\" input element\r\n       And I should see \"Make it at least 8 characters\" value in the \"edit-tooshort\" input element\r\n       And I should see \"Add lowercase letters\" value in the \"edit-addlowercase\" input element\r\n       And I should see \"Add uppercase letters\" value in the \"edit-adduppercase\" input element\r\n       And I should see \"Add numbers\" value in the \"edit-addnumbers\" input element\r\n       And I should see \"Add punctuation\" value in the \"edit-addpunctuation\" input element\r\n       And I should see \"Make it different from your username\" value in the \"edit-sameasusername\" input element\r\n       And I should see \"Weak\" value in the \"edit-weak\" input element\r\n       And I should see \"Fair\" value in the \"edit-fair\" input element\r\n       And I should see \"Good\" value in the \"edit-good\" input element\r\n       And I should see \"Strong\" value in the \"edit-strong\" input element\r\n\r\n   @javascript @check @local @development @staging\r\n   Scenario: Check password policy constraints\r\n      When I go to \"admin/config/security/password-policy/default_policy\"\r\n       And wait\r\n       And I scroll to the bottom\r\n      Then I should see \"Policy Constraints\"\r\n       And I should see \"Number of passwords that will be checked in the user password update history: 0\"\r\n       And I should see \"Password must not contain the user's username.\"\r\n       And I should see \"Password character length of at least 8 characters\"\r\n       And I should see \"Minimum password character types: 4\"\r\n       And I should see \"Password must contain at least 1 special character\"\r\n       And I should see \"Password must contain at least 1 numeric character\"\r\n       And I should see \"Password must contain at least 1 uppercase character\"\r\n       And I should see \"Password must contain at least 1 lowercase character\""
+      format: gherkin

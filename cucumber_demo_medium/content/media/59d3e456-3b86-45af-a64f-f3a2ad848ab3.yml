@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 59d3e456-3b86-45af-a64f-f3a2ad848ab3
+  bundle: feature
+  default_langcode: en
+  depends:
+    a6cd792a-e9f7-450e-83d6-3dc3e7e3f4f6: taxonomy_term
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: '03-02 Admin management - Standard Back-End Navigation - Navigate through the Drupal admin with the keyboard for faster access'
+  created:
+    -
+      value: 1699107339
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: to_do
+  directory:
+    -
+      entity: a6cd792a-e9f7-450e-83d6-3dc3e7e3f4f6
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_description:
+    -
+      value: "Scenario: Check if Super Admins can access the Coffee search box to navigate fast between admin pages\r\nScenario: Check if Site Admins can access the Coffee search box\r\nScenario: Check if Content Admins can access the Coffee search box\r\nScenario: Check if Editors can access the Coffee search box\r\nScenario: Check if Authenticated users can NOT access the Coffee search box"
+      format: plain_text
+  field_media_gherkin:
+    -
+      value: "Feature: Admin management - Standard Back-End Navigation - Navigate through the Drupal admin with the keyboard for faster access\r\nAs a site admin\r\nI want to be able to navigate through the Drupal admin with the keyboard\r\nSo that I will have a faster access to administration pages in the site.\r\n\r\n@javascript @check @local @development @staging @production\r\nScenario: Check if Super Admins can access the Coffee search box to navigate fast between admin pages\r\n  Given I am a logged in user with the \"Super admin\" user\r\n   When I go to the homepage\r\n    And wait\r\n   Then I should see \"Go to\"\r\n\r\n@javascript @check @local @development @staging @production\r\nScenario: Check if Site Admins can access the Coffee search box\r\n  Given I am a logged in user with the \"Site admin\" user\r\n   When I go to the homepage\r\n    And wait\r\n   Then I should see \"Go to\"\r\n\r\n@javascript @check @local @development @staging @production\r\nScenario: Check if Content Admins can access the Coffee search box\r\n  Given I am a logged in user with the \"Content admin\" user\r\n   When I go to the homepage\r\n    And wait\r\n   Then I should see \"Go to\"\r\n\r\n@javascript @check @local @development @staging @production\r\nScenario: Check if Editors can access the Coffee search box\r\n  Given I am a logged in user with the \"Editor\" user\r\n   When I go to the homepage\r\n    And wait\r\n   Then I should see \"Go to\"\r\n\r\n@javascript @check @local @development @staging @production\r\nScenario: Check if Authenticated users can NOT access the Coffee search box\r\n  Given I am a logged in user with the \"Normal user\" user\r\n   When I go to the homepage\r\n    And wait\r\n   Then I should not see \"Go to\""
+      format: gherkin

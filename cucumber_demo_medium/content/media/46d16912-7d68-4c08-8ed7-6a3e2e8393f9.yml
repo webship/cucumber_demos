@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 46d16912-7d68-4c08-8ed7-6a3e2e8393f9
+  bundle: feature
+  default_langcode: en
+  depends:
+    29abfb79-9eda-4d44-aab2-8473c7d64f00: taxonomy_term
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: '05-03 Content Management - Add hero slider to entity queue using entity queue form widget'
+  created:
+    -
+      value: 1699109365
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: to_do
+  directory:
+    -
+      entity: 29abfb79-9eda-4d44-aab2-8473c7d64f00
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_description:
+    -
+      value: "Scenario: Upload the Flag Earth file\r\nScenario: Add a Test hero sliders to the heroslider entity queue them remove them\r\n"
+      format: plain_text
+  field_media_gherkin:
+    -
+      value: "Feature: Content Management - Add hero slider to entity queue using entity queue form widget\r\nAs a logged in user with a permission to mange entity queues\r\nI want to be able to add and remove entities to any allowed entity queue.\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Upload the Flag Earth file\r\n    Given I am a logged in user with the \"Site admin\" user\r\n     When I go to \"/media/add/image\"\r\n      And wait\r\n     Then I should see \"Allowed types: png gif jpg jpeg.\"\r\n     When I attach the file \"flag-earth.jpg\" to \"edit-field-media-image-0-upload\"\r\n      And wait\r\n      And I press the \"Save\" button\r\n      And wait\r\n      And I fill in \"Flag Earth in space\" for \"field_media_image[0][alt]\"\r\n      And I fill in \"Flag Earth all earth in space\" for \"field_media_image[0][title]\"\r\n      And I fill in \"Flag Earth\" for \"name[0][value]\"\r\n      And I check the box \"Show in media library\"\r\n      And I press the \"Save\" button\r\n      And wait\r\n     Then I should see \"Flag Earth\"\r\n  #-----------------------------------------------------------------------------\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Add a Test hero sliders to the heroslider entity queue them remove them\r\n    Given I am a logged in user with the \"Super admin\" user\r\n\r\n     # Add the \"Test hero slier #1\" content and to the hero slider queue.\r\n     When I go to \"/node/add/varbase_heroslider_media\"\r\n      And I wait max of 5s for the page to be ready and loaded\r\n     Then I should see \"Create Hero slider\"\r\n     When I fill in \"Test hero slider #1\" for \"Slide title\"\r\n      And I fill in \"Test hero slider slide text #1\" for \"Slide text\"\r\n      And I press \"field_media_single-media-library-open-button\"\r\n      And I wait for AJAX to finish\r\n     Then I should see \"Name\"\r\n     When I fill in \"Flag Earth\" for \"Name\"\r\n      And I press the \"Apply filters\" button\r\n     Then I should see image with the \"Flag Earth all earth in space\" title text\r\n      And I wait for AJAX to finish\r\n     When I check the box \"media_library_select_form[0]\"\r\n\t\t  And I wait for AJAX to finish\r\n\t\t  And I press \"dialog-submit\"\r\n\t\t  And I wait for AJAX to finish\r\n      And I wait max of 5s\r\n      And I expand the field \"edit-entityqueue-form-widget\"\r\n      And I wait for AJAX to finish\r\n     Then I should see \"Choose from the available entityqueues below to push this content to.\"\r\n     When I check the box \"varbase_heroslider_media\"\r\n      And I select \"published\" from \"edit-moderation-state-0-state\"\r\n      And I press the \"Save\" button\r\n      And wait\r\n     Then I should see \"Test hero slider #1\"\r\n\r\n     # Add the \"Test hero slier #2\" content and to the hero slider queue.\r\n     When I go to \"/node/add/varbase_heroslider_media\"\r\n      And I wait max of 2s for the page to be ready and loaded\r\n     Then I should see \"Create Hero slider\"\r\n     When I fill in \"Test hero slider #2\" for \"Slide title\"\r\n      And I fill in \"Test hero slider slide text #2\" for \"Slide text\"\r\n      And I press \"field_media_single-media-library-open-button\"\r\n      And I wait for AJAX to finish\r\n     Then I should see \"Name\"\r\n     When I fill in \"Flag Earth\" for \"Name\"\r\n      And I press the \"Apply filters\" button\r\n     Then I should see image with the \"Flag Earth all earth in space\" title text\r\n      And I wait for AJAX to finish\r\n     When I check the box \"media_library_select_form[0]\"\r\n      And I wait for AJAX to finish\r\n      And I press \"dialog-submit\"\r\n      And I wait for AJAX to finish\r\n      And I wait max of 5s\r\n      And I expand the field \"edit-entityqueue-form-widget\"\r\n      And I wait for AJAX to finish\r\n     Then I should see \"Choose from the available entityqueues below to push this content to.\"\r\n     When I check the box \"varbase_heroslider_media\"\r\n      And I select \"published\" from \"edit-moderation-state-0-state\"\r\n      And I press the \"Save\" button\r\n      And wait\r\n     Then I should see \"Test hero slider #2\"\r\n\r\n     # Check that both hero sliders are listed in the queue.\r\n     When I go to \"/admin/structure/entityqueue/varbase_heroslider_media/varbase_heroslider_media\"\r\n      And wait\r\n     Then I should see \"Test hero slider #1\"\r\n      And I should see \"Test hero slider #2\"\r\n\r\n     # Delete both sliders.\r\n     When I go to \"/admin/content\"\r\n      And wait\r\n     Then I should see \"Content\"\r\n     When I check the box \"Test hero slider #1\"\r\n      And I check the box \"Test hero slider #2\"\r\n      And I select \"Delete selected entities / translations\" from \"action\"\r\n     When I press \"Apply to selected items\"\r\n      And wait\r\n      And wait 3s\r\n     Then I should see \"Items selected:\"\r\n      And I should see \"Test hero slider #1\"\r\n      And I should see \"Test hero slider #2\"\r\n     When I press \"Execute action\"\r\n      And I wait 10s\r\n     Then I should see \"Action processing results: Delete entities (2).\"\r\n\r\n     # Check that the 2 hero sliders had beend removed from the queue.\r\n     When I go to \"/admin/structure/entityqueue/varbase_heroslider_media/varbase_heroslider_media\"\r\n      And wait\r\n     Then I should not see \"Test hero slider #1\"\r\n      And I should not see \"Test hero slider #2\""
+      format: gherkin

@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 39eb6fdf-27dd-41cf-aa32-c32528fb6da7
+  bundle: feature
+  default_langcode: en
+  depends:
+    29abfb79-9eda-4d44-aab2-8473c7d64f00: taxonomy_term
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: '05-08 Content Management - Content Planning and scheduling'
+  created:
+    -
+      value: 1699109837
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: to_do
+  directory:
+    -
+      entity: 29abfb79-9eda-4d44-aab2-8473c7d64f00
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_description:
+    -
+      value: "Scenario: Check Content planner dashboard page\r\nScenario: Check Content Calendar page\r\nScenario: Check Content Kanban page"
+      format: plain_text
+  field_media_gherkin:
+    -
+      value: "Feature: Content Management - Content Planning and scheduling\r\nAs a content admin\r\nI want to be able to add plan content publishing for internal content\r\nSo that they will be scheduled to publish or publish on the planed time.\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check Content planner dashboard page\r\n    Given I am a logged in user with the \"webmaster\" user\r\n     When I go to \"/admin/content-planner/dashboard\"\r\n      And wait\r\n     Then I should see \"Dashboard\"\r\n      And I should see \"Content Status Widget\"\r\n      And I should see \"Recent Calendar Publications Widget\"\r\n      And I should see \"Recent Kanban Activities\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check Content Calendar page\r\n    Given I am a logged in user with the \"webmaster\" user\r\n     When I go to \"/admin/content-calendar/show-current-year\"\r\n      And wait\r\n     Then I should see \"Content Calendar\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check Content Kanban page\r\n    Given I am a logged in user with the \"webmaster\" user\r\n     When I go to \"/admin/content-kanban\"\r\n      And wait\r\n     Then I should see \"Content Kanban\"\r\n      And I should see \"Simple\"\r\n\r\n# WIP needs to manage permissions and a check for each user role."
+      format: gherkin

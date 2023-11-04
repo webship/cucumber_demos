@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 667f3e28-6072-4afb-97e7-ec4110c69aa6
+  bundle: feature
+  default_langcode: en
+  depends:
+    0128383a-67e1-48da-bbdb-d3c24a7a3c99: taxonomy_term
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: '02-06 User Management - Standard User Management - Users with permission to assign roles may select which roles are available for assignment'
+  created:
+    -
+      value: 1699106917
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: to_do
+  directory:
+    -
+      entity: 0128383a-67e1-48da-bbdb-d3c24a7a3c99
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_description:
+    -
+      value: 'Scenario: Check the Role Assign configuration'
+      format: plain_text
+  field_media_gherkin:
+    -
+      value: "Feature: User Management - Standard User Management - Users with permission to assign roles may select which roles are available for assignment\r\nAs a logged in site admin and a permission to Assign roles\r\nI will be able to assign roles to other users.\r\nSo that only users with permission to assign roles may select which roles are available for assignment\r\n\r\n  @javascript @check @local @development @staging @production\r\n  Scenario: Check the Role Assign configuration\r\n    Given I am a logged in user with the \"webmaster\" user\r\n     When I go to \"/admin/people/roleassign\"\r\n      And wait\r\n     Then I should see \"Role assign\"\r\n      And the \"Editor\" checkbox should be checked\r\n      And the \"Content Admin\" checkbox should be checked\r\n      And the \"Site Admin\" checkbox should be checked"
+      format: gherkin

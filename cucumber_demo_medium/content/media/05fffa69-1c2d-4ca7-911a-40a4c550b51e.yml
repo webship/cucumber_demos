@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 05fffa69-1c2d-4ca7-911a-40a4c550b51e
+  bundle: feature
+  default_langcode: en
+  depends:
+    a9836901-356c-40ee-bc1b-f0e6986249d2: taxonomy_term
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: '04-01 Content Structure - Basic Page'
+  created:
+    -
+      value: 1699108148
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: to_do
+  directory:
+    -
+      entity: a9836901-356c-40ee-bc1b-f0e6986249d2
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_description:
+    -
+      value: "Scenario: Check if an authenticated user can add content of Basic page type\r\nScenario: Check if an Editor can add content of  Basic page type\r\nScenario: Check if a Content Admin can add content of Basic page type\r\nScenario: Check if a Site Admin can add content of Basic page type\r\nScenario: Check if a Super Admin can add content of  Basic page type\r\nScenario: Check if the webmaster can add content of Basic page type\r\nScenario: Check if a user with a permission to manage Basic page content type can create Basic pages content\r\nScenario: Check if we can create a Test Basic page we can see Change layout floating button to change the layout\r\nScenario: Check if a user with a permission to manage Basic page content type"
+      format: plain_text
+  field_media_gherkin:
+    -
+      value: "Feature: Content Structure - Basic Page\r\nAs a logged in user with a permission to mange Basic pages\r\nI want to be able to add a \"Basic page\" to the site with a fixed layout\r\nSo that the \"Basic page\" will show up in the structured menu under its parent page\r\n\r\n# Check if users with the ( \"authenticated user\", \"Editor\", \"Content Admin\",\r\n# \"Site Admin\", or \"Super Admin\" ) role can add [Basic page]\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check if an authenticated user can add content of Basic page type\r\n    Given I am a logged in user with the \"Normal user\" user\r\n     When I go to \"/node/add\"\r\n      And wait\r\n     Then I should see \"You are not authorized to access this page.\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check if an Editor can add content of  Basic page type\r\n    Given I am a logged in user with the \"Editor\" user\r\n     When I go to \"/node/add\"\r\n      And wait\r\n     Then I should see \"Basic page\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check if a Content Admin can add content of Basic page type\r\n    Given I am a logged in user with the \"Content admin\" user\r\n     When I go to \"/node/add\"\r\n      And wait\r\n     Then I should see \"Basic page\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check if a Site Admin can add content of Basic page type\r\n    Given I am a logged in user with the \"Site admin\" user\r\n     When I go to \"/node/add\"\r\n      And wait\r\n     Then I should see \"Basic page\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check if a Super Admin can add content of  Basic page type\r\n    Given I am a logged in user with the \"Super admin\" user\r\n     When I go to \"/node/add\"\r\n      And wait\r\n     Then I should see \"Basic page\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check if the webmaster can add content of Basic page type\r\n    Given I am a logged in user with the \"webmaster\" user\r\n     When I go to \"/node/add\"\r\n      And wait\r\n     Then I should see \"Basic page\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check if a user with a permission to manage Basic page content type can create Basic pages content\r\n    Given I am a logged in user with the \"Super admin\" user\r\n     When I go to \"/node/add/page\"\r\n      And wait\r\n     Then I should see \"Create Basic page\"\r\n      And I should see \"Language\"\r\n      And I should see \"Title\"\r\n      And I should see \"Body\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check if we can create a Test Basic page we can see Change layout floating button to change the layout\r\n    Given I am a logged in user with the \"Super admin\" user\r\n     When I go to \"/node/add/page\"\r\n      And wait\r\n      And I fill in \"Test Basic page\" for \"Title\"\r\n      And I fill in the rich text editor field \"Body\" with \"Test Basic page body\"\r\n      And I select \"published\" from \"edit-moderation-state-0-state\"\r\n      And I press the \"Save\" button\r\n      And wait\r\n     Then I should see \"Basic page Test Basic page has been created.\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check if a user with a permission to manage Basic page content type\r\n    Given I am a logged in user with the \"Super admin\" user\r\n     When I go to \"/admin/content\"\r\n      And wait\r\n     Then I should see \"Content\"\r\n     When I fill in \"Test Basic page\" for \"Title\"\r\n      And I press the \"Filter\" button\r\n      And wait\r\n     Then I should see \"Test Basic page\"\r\n     When I click \"Test Basic page\"\r\n      And wait\r\n     When I go to \"/admin/content\"\r\n      And wait\r\n     Then I should see \"Content\"\r\n     When I fill in \"Test Basic page\" for \"Title\"\r\n      And I press the \"Filter\" button\r\n      And wait\r\n     Then I should see \"Test Basic page\"\r\n     When I click \"Edit\" in the \"Test Basic page\" row\r\n      And wait\r\n     Then I should see \"Edit Basic page\"\r\n      And I should see \"Test Basic page\""
+      format: gherkin

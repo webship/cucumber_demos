@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 2f9da8f0-a676-477c-803d-6c805bc703aa
+  bundle: feature
+  default_langcode: en
+  depends:
+    29abfb79-9eda-4d44-aab2-8473c7d64f00: taxonomy_term
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: '05-05 File & Media Management - Assets Management - Ability to embed existing media image library in the rich text editor'
+  created:
+    -
+      value: 1699109558
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: to_do
+  directory:
+    -
+      entity: 29abfb79-9eda-4d44-aab2-8473c7d64f00
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_description:
+    -
+      value: "Scenario: Create the Test Basic page to embed existing files content\r\nScenario: Upload the  Embed Flag Earth file\r\n"
+      format: plain_text
+  field_media_gherkin:
+    -
+      value: "Feature: File & Media Management - Assets Management - Ability to embed existing media image library in the rich text editor\r\nAs a content admin\r\nI want to be able to embed existing files from the library of files in the CKEditor\r\nSo that it will show up under that rich text field without having to upload the image for each content\r\n\r\n  Background:\r\n    Given I am a logged in user with the \"Site admin\" user\r\n\r\n  # Create the Basic page and upload the file to the library before the test case.\r\n  # ----------------------------------------------------------------------------\r\n   @javascript @local @development @staging @production\r\n   Scenario: Create the Test Basic page to embed existing files content\r\n      When I go to \"/node/add/page\"\r\n       And wait\r\n       And I fill in \"Test Basic page to embed existing files\" for \"Title\"\r\n       And I fill in the rich text editor field \"Body\" with \"Test Basic page body to embed existing files\"\r\n       And I select \"published\" from \"edit-moderation-state-0-state\"\r\n       And I press the \"Save\" button\r\n       And wait\r\n      Then I should see \"Basic page Test Basic page to embed existing files has been created.\"\r\n\r\n   @javascript @local @development @staging @production\r\n   Scenario: Upload the  Embed Flag Earth file\r\n      When I go to \"/media/add/image\"\r\n       And wait\r\n      Then I should see \"Allowed types: png gif jpg jpeg.\"\r\n      When I attach the file \"flag-earth.jpg\" to \"edit-field-media-image-0-upload\"\r\n       And wait\r\n       And I press the \"Save\" button\r\n       And wait\r\n       And I fill in \"Embed Flag Earth in space\" for \"field_media_image[0][alt]\"\r\n       And I fill in \"Embed Flag Earth all earth in space\" for \"field_media_image[0][title]\"\r\n       And I fill in \"Embed Flag Earth\" for \"name[0][value]\"\r\n       And I check the box \"Show in media library\"\r\n       And I press the \"Save\" button\r\n       And wait\r\n      Then I should see \"Embed Flag Earth\""
+      format: gherkin

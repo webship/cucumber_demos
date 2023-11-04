@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 6cd95eaf-338f-4d8f-a239-3bda3dc34233
+  bundle: feature
+  default_langcode: en
+  depends:
+    0128383a-67e1-48da-bbdb-d3c24a7a3c99: taxonomy_term
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: '02-03 User Management - Standard User Management - Login'
+  created:
+    -
+      value: 1699106751
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: to_do
+  directory:
+    -
+      entity: 0128383a-67e1-48da-bbdb-d3c24a7a3c99
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_description:
+    -
+      value: "Scenario: Check if a visitor can login with a valid username and password\r\nScenario: Verify a form error after not entering the username or password when we login"
+      format: plain_text
+  field_media_gherkin:
+    -
+      value: "Feature: User Management - Standard User Management - Login\r\nAs a visitor with an existing user account\r\nI want to be able to login to the site\r\nSo that I will be able to view/add/edit/ or delete content in the site\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check if a visitor can login with a valid username and password\r\n    Given I am on \"user/login\"\r\n      And I wait 6s\r\n     When I fill in \"Normal user\" for \"Email or username\"\r\n      And I fill in \"dD.123123ddd\" for \"Password\"\r\n      And I scroll to bottom\r\n      And I wait 2s\r\n      And I press \"Log in\"\r\n      And wait\r\n     Then I should see \"Normal user\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Verify a form error after not entering the username or password when we login\r\n    Given I am on \"user/login\"\r\n      And I wait 6s\r\n     When I fill in \" \" for \"Email or username\"\r\n      And I fill in \" \" for \"Password\"\r\n      And I scroll to bottom\r\n      And I wait 2s\r\n     When I press \"Log in\"\r\n      And wait\r\n     Then I should see \"2 errors have been found\""
+      format: gherkin

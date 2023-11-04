@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 77a5f753-8684-4c4f-b113-76eac6504d35
+  bundle: feature
+  default_langcode: en
+  depends:
+    29abfb79-9eda-4d44-aab2-8473c7d64f00: taxonomy_term
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: '05-01 Content Management - Standard Entity Queue Management - Have the option to Reverse order in admin view'
+  created:
+    -
+      value: 1699109230
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: to_do
+  directory:
+    -
+      entity: 29abfb79-9eda-4d44-aab2-8473c7d64f00
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_description:
+    -
+      value: "Scenario: Check that Reverse order in admin view is working\r\n"
+      format: plain_text
+  field_media_gherkin:
+    -
+      value: "Feature: Content Management - Standard Entity Queue Management - Have the option to Reverse order in admin view\r\nAs a logged in user with a permission to manage entity queues\r\nI well be able to view the order of entities in entity queues in a reverse order.\r\nSo that they will have a flipped order at the front-end.\r\n\r\n@javascript @local @development\r\nScenario: Check that Reverse order in admin view is working\r\n  Given I am a logged in user with the \"webmaster\" user\r\n   When I go to \"/admin/structure/entityqueue\"\r\n    And wait\r\n   Then I should see \"Test Queue\"\r\n   When I click \"Edit items\" in the \"Test Queue\" row\r\n    And wait\r\n   Then I should see \"Edit subqueue Test Queue\"\r\n    And I should see \"Test content N1\" in the \"Test content N1\" row\r\n    And I should see \"Test content N2\" in the \"Test content N2\" row\r\n    And I should see \"Test content N3\" in the \"Test content N3\" row\r\n\r\n   When I go to \"/admin/structure/entityqueue/test_queue#edit-queue-settings\"\r\n    And wait\r\n   Then I should see \"Configure Test Queue\"\r\n    And I should see \"Restrict this queue to a minimum of\"\r\n    And I should see \"Reverse\"\r\n   When I check the box \"Reverse\"\r\n    And I press \"Save\"\r\n    And wait\r\n   Then I should see \"The entity queue Test Queue has been updated.\"\r\n   When I go to \"/admin/structure/entityqueue\"\r\n    And wait\r\n   Then I should see \"Test Queue\"\r\n   When I click \"Edit items\" in the \"Test Queue\" row\r\n    And wait\r\n   Then I should see \"Edit subqueue Test Queue\"\r\n   When I press \"Reverse\"\r\n    And I wait for AJAX to finish\r\n    And I press \"Save\"\r\n    And wait\r\n   Then I should see \"The entity subqueue Test Queue has been updated.\"\r\n   When I go to \"/admin/structure/entityqueue\"\r\n    And wait\r\n   Then I should see \"Test Queue\"\r\n   When I click \"Edit items\" in the \"Test Queue\" row\r\n    And wait\r\n   Then I should see \"Edit subqueue Test Queue\"\r\n    And I should see \"Test content N3\" in the \"Test content N3\" row\r\n    And I should see \"Test content N2\" in the \"Test content N2\" row\r\n    And I should see \"Test content N1\" in the \"Test content N1\" row\r\n\r\n    # Delete test content for subqueue test queue.\r\n    When I go to \"/admin/content\"\r\n     And wait\r\n    Then I should see \"Content\"\r\n    When I check the box \"Test content N1\"\r\n     And I check the box \"Test content N2\"\r\n     And I check the box \"Test content N3\"\r\n     And I select \"Delete selected entities / translations\" from \"action\"\r\n    When I press \"Apply to selected items\"\r\n     And wait\r\n     And wait 3s\r\n    Then I should see \"Items selected:\"\r\n     And I should see \"Test content N1\"\r\n     And I should see \"Test content N2\"\r\n     And I should see \"Test content N3\"\r\n    When I press \"Execute action\"\r\n     And I wait 10s\r\n    Then I should see \"Action processing results: Delete entities (3).\"\r\n\r\n   When I go to \"/admin/structure/entityqueue\"\r\n    And wait\r\n   Then I should see \"Test Queue\"\r\n   When I click \"Edit items\" in the \"Test Queue\" row\r\n    And wait\r\n   Then I should see \"Edit subqueue Test Queue\"\r\n    And I should not see \"Test content N3\"\r\n    And I should not see \"Test content N2\"\r\n    And I should not see \"Test content N1\""
+      format: gherkin

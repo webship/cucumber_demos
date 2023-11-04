@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: a37f8315-1271-4be8-ad37-ae75168a6d9e
+  bundle: feature
+  default_langcode: en
+  depends:
+    a9836901-356c-40ee-bc1b-f0e6986249d2: taxonomy_term
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: '04-02 Content Structure - Landing page (Paragraphs)'
+  created:
+    -
+      value: 1699108258
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: to_do
+  directory:
+    -
+      entity: a9836901-356c-40ee-bc1b-f0e6986249d2
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_description:
+    -
+      value: "Scenario: Check if we do have the Landing page (Paragraphs) content type\r\nScenario: Check that the Landing page (Paragraphs) content type has paragraphs field\r\nScenario: Check that an Anonymous users can not create a Landing page (Paragraphs)\r\nScenario: Check that an authenticated user can not create a Landing page (Paragraphs)\r\nScenario: Check that Editor users can create a Landing page (Paragraphs)\r\nScenario: Check that Content Admin users can create a Landing page (Paragraphs)\r\nScenario: Check that Site Admin users can create a Landing page (Paragraphs)"
+      format: plain_text
+  field_media_gherkin:
+    -
+      value: "Feature: Content Structure - Landing page (Paragraphs)\r\nAs a logged in user with a permission to manage Landing page (Paragraphs).\r\nI want to be able to add a \"Landing page\" which has got predefined set of paragrphs\r\nSo that the \"Landing page (Paragraphs)\" will show up in the structured menu under its parent page\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check if we do have the Landing page (Paragraphs) content type\r\n    Given I am a logged in user with the \"webmaster\" user\r\n     When I go to \"/admin/structure/types\"\r\n      And wait\r\n     Then I should see \"Landing page (Paragraphs)\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check that the Landing page (Paragraphs) content type has paragraphs field\r\n    Given I am a logged in user with the \"webmaster\" user\r\n     When I go to \"/admin/structure/types/manage/landing_page/fields\"\r\n      And wait\r\n      Then I should see \"field_lp_paragraphs\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check that an Anonymous users can not create a Landing page (Paragraphs)\r\n    Given I am an anonymous user\r\n     When I go to \"/node/add/landing_page\"\r\n      And wait\r\n     Then I should see \"Access denied\"\r\n      And I should see \"You are not authorized to access this page.\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check that an authenticated user can not create a Landing page (Paragraphs)\r\n    Given I am a logged in user with the \"Normal user\" user\r\n     When I go to \"/node/add/landing_page\"\r\n      And wait\r\n     Then I should see \"Access denied\"\r\n      And I should see \"You are not authorized to access this page.\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check that Editor users can create a Landing page (Paragraphs)\r\n    Given I am a logged in user with the \"Editor\" user\r\n     When I go to \"/node/add/landing_page\"\r\n      And wait\r\n     Then I should not see \"Access denied\"\r\n      And I should not see \"You are not authorized to access this page.\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check that Content Admin users can create a Landing page (Paragraphs)\r\n    Given I am a logged in user with the \"Content admin\" user\r\n     When I go to \"/node/add/landing_page\"\r\n      And wait\r\n     Then I should not see \"Access denied\"\r\n      And I should not see \"You are not authorized to access this page.\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check that Site Admin users can create a Landing page (Paragraphs)\r\n    Given I am a logged in user with the \"Site admin\" user\r\n     When I go to \"/node/add/landing_page\"\r\n      And wait\r\n     Then I should not see \"Access denied\"\r\n      And I should not see \"You are not authorized to access this page.\""
+      format: gherkin

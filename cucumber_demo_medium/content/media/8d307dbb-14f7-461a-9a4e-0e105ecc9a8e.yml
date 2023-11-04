@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 8d307dbb-14f7-461a-9a4e-0e105ecc9a8e
+  bundle: feature
+  default_langcode: en
+  depends:
+    0128383a-67e1-48da-bbdb-d3c24a7a3c99: taxonomy_term
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: '02-02 User Management - Standard User Management - Admins can create users and assign a role to them'
+  created:
+    -
+      value: 1699106690
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: to_do
+  directory:
+    -
+      entity: 0128383a-67e1-48da-bbdb-d3c24a7a3c99
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_description:
+    -
+      value: "Scenario: Check if admins can see all parts and filters in the People administration page\r\nScenario: Check if admins can create a new user account as an authenticated user\r\nScenario: Delete the tester user\r\n"
+      format: plain_text
+  field_media_gherkin:
+    -
+      value: "Feature: User Management - Standard User Management - Admins can create users and assign a role to them\r\nAs a site admin user\r\nI want to be able to create new user accounts and assign roles to them\r\nSo that they will be able to use the site.\r\n\r\n  Background:\r\n    Given I am a logged in user with the \"webmaster\" user\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check if admins can see all parts and filters in the People administration page\r\n     When I go to \"/admin/people\"\r\n      And wait\r\n     Then I should see \"People\"\r\n      And I should see \"Add user\"\r\n      And I should see \"Name or email contains\"\r\n      And I should see \"Status\"\r\n      And I should see \"Role\"\r\n      And I should see \"Registered date (from)\"\r\n      And I should see \"Registered date (to)\"\r\n      And I should see \"Username\"\r\n      And I should see \"Operations\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check if admins can create a new user account as an authenticated user\r\n     When I go to \"/admin/people/create\"\r\n      And wait\r\n     When I fill in \"tester@vardot.com\" for \"Email\"\r\n      And I fill in \"tester\" for \"Username\"\r\n      And I fill in \"dD.123123ddd\" for \"Password\"\r\n      And I fill in \"dD.123123ddd\" for \"Confirm password\"\r\n      And I scroll to bottom\r\n      And I press \"Create new account\"\r\n\r\n  @javascript @cleanup @local @development @staging @production\r\n  Scenario: Delete the tester user\r\n     When I go to \"/admin/people\"\r\n      And I fill in \"tester\" for \"Name or email contains\"\r\n      And I press \"Filter\"\r\n      And wait\r\n     Then I should see \"tester\"\r\n     When I click \"Edit\" in the \"tester\" row\r\n      And wait\r\n      And I scroll to bottom\r\n      And I click \"Cancel account\"\r\n      And wait\r\n      And wait 3s\r\n     Then I should see \"Are you sure you want to cancel the account tester?\"\r\n     When I select the radio button \"Delete the account and its content. This action cannot be undone.\"\r\n      And I scroll to bottom\r\n      And I press \"Confirm\"\r\n      And I wait 10s\r\n     Then I should see \"People\""
+      format: gherkin

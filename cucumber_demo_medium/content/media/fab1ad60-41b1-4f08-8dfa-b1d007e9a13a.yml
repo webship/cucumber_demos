@@ -1,0 +1,42 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: fab1ad60-41b1-4f08-8dfa-b1d007e9a13a
+  bundle: feature
+  default_langcode: en
+  depends:
+    3ee547ba-2445-4dce-bfe7-d6b68878eea2: taxonomy_term
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: '01-02 Website Base Requirements - User Roles - Simple Roles'
+  created:
+    -
+      value: 1699105919
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: to_do
+  directory:
+    -
+      entity: 3ee547ba-2445-4dce-bfe7-d6b68878eea2
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_media_gherkin:
+    -
+      value: "Feature: Website Base Requirements - User Roles - Simple Roles\r\nAs a logged in user with the User ID number 1\r\nI want to be able to see the list of User Roles\r\nSo that they must be (Editor, Site Admin, Content Admin, Super Admin)\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check that all default list of roles are present\r\n    Given I am a logged in user with the \"webmaster\" user\r\n     When I go to \"/admin/people/roles\"\r\n      And wait\r\n     Then I should see \"Editor\"\r\n      And I should see \"Content Admin\"\r\n      And I should see \"SEO Admin\"\r\n      And I should see \"Site Admin\"\r\n      And I should see \"Super Admin\""
+      format: gherkin

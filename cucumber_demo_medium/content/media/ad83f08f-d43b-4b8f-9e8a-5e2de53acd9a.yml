@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: ad83f08f-d43b-4b8f-9e8a-5e2de53acd9a
+  bundle: feature
+  default_langcode: en
+  depends:
+    0128383a-67e1-48da-bbdb-d3c24a7a3c99: taxonomy_term
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: '02-01 User Management - Standard User Management - Request new password'
+  created:
+    -
+      value: 1699106609
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: to_do
+  directory:
+    -
+      entity: 0128383a-67e1-48da-bbdb-d3c24a7a3c99
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_description:
+    -
+      value: "Scenario: Check that an anonymous user can reset his or her password\r\nScenario: Verify that the system cannot send an email to non-existing users or emails"
+      format: plain_text
+  field_media_gherkin:
+    -
+      value: "Feature: User Management - Standard User Management - Request new password\r\nAs a user with a ready user account\r\nI will want to be able to Request new password\r\nSo that I can reset my password for the account\r\n\r\n  Background:\r\n    Given I am not logged in\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check that an anonymous user can reset his or her password\r\n     When I go to \"/user/login\"\r\n      And wait\r\n     Then I should see \"Forgot your password?\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Verify that the system cannot send an email to non-existing users or emails\r\n     When I go to \"/user/password\"\r\n      And I wait 6s\r\n     Then I should see \"Email\"\r\n     When I fill in \"not.existing.email@vardot.com\" for \"Email\"\r\n      And I scroll to the bottom\r\n      And I wait 2s\r\n      And I press the \"Reset\" button\r\n      And wait\r\n     Then I should see \"If the username or email address exists and is active, further instructions have been sent to your email address.\""
+      format: gherkin

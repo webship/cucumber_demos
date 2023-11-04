@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: a49b97bf-82d0-44f6-a22b-37391ab7d27c
+  bundle: feature
+  default_langcode: en
+  depends:
+    29abfb79-9eda-4d44-aab2-8473c7d64f00: taxonomy_term
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: '05-04 Content Management - Cloning content and entities'
+  created:
+    -
+      value: 1699109491
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: to_do
+  directory:
+    -
+      entity: 29abfb79-9eda-4d44-aab2-8473c7d64f00
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_description:
+    -
+      value: "Scenario: Check if a user with a permission can clone a Landing page (Paragraphs)\r\nScenario: Check if a user with a permission deleted a cloned entity the original will not affected"
+      format: plain_text
+  field_media_gherkin:
+    -
+      value: "Feature: Content Management - Cloning content and entities\r\nAs a logged in user with a permission to mange entities\r\nI want to be able to clone an entity.\r\n\r\n@javascript @local @development\r\n  Scenario: Check if a user with a permission can clone a Landing page (Paragraphs)\r\n    Given I am a logged in user with the \"Site admin\" user\r\n     When I go to \"/node/add/landing_page\"\r\n      And wait\r\n      And I fill in \"Test Clone landing page\" for \"Title\"\r\n      And I fill in \"Test landing page description text\" for \"Page description\"\r\n      And I wait for AJAX to finish\r\n      And I wait for 1 second\r\n      And I press \"Add Component\"\r\n      And I wait for AJAX to finish\r\n      And I wait for 1 second\r\n      And I select the \"bp_block\" paragraph component\r\n      And I wait for AJAX to finish\r\n     Then I should see \"Block\"\r\n     When I select \"Site branding\" from \"Block\"\r\n      And wait\r\n      And I select \"published\" from \"edit-moderation-state-0-state\"\r\n      And I press the \"Save\" button\r\n      And wait\r\n     Then I should see \"Test Clone landing page has been created\"\r\n\r\n     When I go to \"/admin/content\"\r\n      And wait\r\n     Then I should see \"Content\"\r\n     When I fill in \"Test Clone landing page\" for \"Title\"\r\n      And I press the \"Filter\" button\r\n      And wait\r\n     Then I should see \"Test Clone landing page\"\r\n     When I fill in \"Test Clone landing page\" for \"Title\"\r\n      And I press the \"Filter\" button\r\n      And wait\r\n     Then I should see \"Test Clone landing page\"\r\n     When I click \"Edit\" in the \"Test Clone landing page\" row\r\n      And wait\r\n     Then I should see \"Clone\"\r\n     When I click \"Clone\"\r\n      And wait\r\n     Then I should see \"Specify the child entities (the entities referenced by this entity) that should also be cloned as part of the cloning process.\"\r\n     When I press \"edit-clone\"\r\n      And wait\r\n     Then I should see \"Test Clone landing page - Cloned\"\r\n\r\n  @javascript @local @development\r\n  Scenario: Check if a user with a permission deleted a cloned entity the original will not affected\r\n    Given I am a logged in user with the \"Super admin\" user\r\n     When I go to \"/admin/content\"\r\n      And wait\r\n     Then I should see \"Content\"\r\n     When I fill in \"Test Clone landing page - Cloned\" for \"Title\"\r\n      And I press the \"Filter\" button\r\n      And wait\r\n     Then I should see \"Test Clone landing page - Cloned\"\r\n      And I check the box \"edit-views-bulk-operations-bulk-form-0\"\r\n      And I select \"Delete selected entities\" from \"Action\"\r\n      And I press \"Apply to selected items\"\r\n      And wait\r\n      And wait 3s\r\n     Then I should see \"Are you sure you wish to perform\"\r\n     When I press \"Execute action\"\r\n      And I wait for 5s\r\n     Then I should see \"Action processing results: Delete entities (1).\"\r\n     When I go to \"/admin/content\"\r\n      And wait\r\n     Then I should see \"Content\"\r\n     When I fill in \"Test Clone landing page - Cloned\" for \"Title\"\r\n      And I press the \"Filter\" button\r\n      And wait\r\n     Then I should not see \"Test Clone landing page - Cloned\"\r\n     When I fill in \"Test Clone landing page\" for \"Title\"\r\n      And I press the \"Filter\" button\r\n      And wait\r\n     Then I should see \"Test Clone landing page\"\r\n     When I click \"Test Clone landing page\"\r\n      And wait\r\n     Then I should see \"Test Clone landing page\""
+      format: gherkin

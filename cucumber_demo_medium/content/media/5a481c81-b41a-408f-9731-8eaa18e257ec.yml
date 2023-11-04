@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 5a481c81-b41a-408f-9731-8eaa18e257ec
+  bundle: feature
+  default_langcode: en
+  depends:
+    a6cd792a-e9f7-450e-83d6-3dc3e7e3f4f6: taxonomy_term
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: '03-04 File & Media Management - Assets Management - Image media and their usage list page for site admins'
+  created:
+    -
+      value: 1699107508
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: to_do
+  directory:
+    -
+      entity: a6cd792a-e9f7-450e-83d6-3dc3e7e3f4f6
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_description:
+    -
+      value: "Scenario: Check if content admins can access the content files page\r\nScenario: Check if we do have a file named Flag Earth, if not then upload the file dependently\r\nScenario: Check if content admins can edit files\r\nScenario: Check if content admins can delete files"
+      format: plain_text
+  field_media_gherkin:
+    -
+      value: "Feature: File & Media Management - Assets Management - Image media and their usage list page for site admins\r\nAs a user with permission to manage files in the site\r\nI want to be able to see the list of files\r\nSo that I will be able to manage files, see where they have been used in contents.\r\n\r\n  Background:\r\n    Given I am a logged in user with the \"Site admin\" user\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check if content admins can access the content files page\r\n     When I go to \"admin/content/media\"\r\n      And wait\r\n     Then I should see \"Add media\"\r\n      And I should not see \"Access denied\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check if we do have a file named Flag Earth, if not then upload the file dependently\r\n      When I go to \"/media/add/image\"\r\n       And wait\r\n      Then I should see \"Allowed types: png gif jpg jpeg.\"\r\n      When I attach the file \"flag-earth.jpg\" to \"edit-field-media-image-0-upload\"\r\n       And wait\r\n       And I press the \"Save\" button\r\n       And wait\r\n       And I fill in \"Flag Earth in space\" for \"field_media_image[0][alt]\"\r\n       And I fill in \"Flag Earth all earth in space\" for \"field_media_image[0][title]\"\r\n       And I fill in \"Flag Earth\" for \"name[0][value]\"\r\n       And I check the box \"Show in media library\"\r\n       And I press the \"Save\" button\r\n       And wait\r\n      Then I should see \"Flag Earth\"\r\n       And wait\r\n      When I go to \"admin/content/media\"\r\n      Then I should see \"Add media\"\r\n       And I should see the \"Edit\" in the \"Flag Earth\" row\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check if content admins can edit files\r\n     When I go to \"/admin/content/media\"\r\n      And wait\r\n     Then I should see \"Add media\"\r\n     When I fill in \"Flag Earth\" for \"edit-name\"\r\n      And I press the \"Filter\" button\r\n      And wait\r\n     Then I should see \"Flag Earth\"\r\n     When I click \"Edit\" in the \"Flag Earth\" row\r\n      And wait\r\n     Then I should see \"Edit Image Flag Earth\"\r\n     When I fill in \"Flag Earth after edit\" for \"name[0][value]\"\r\n      And I check the box \"Show in media library\"\r\n      And I press the \"Save\" button\r\n      And wait\r\n     Then I should see \"Image Flag Earth after edit has been updated.\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check if content admins can delete files\r\n     When I go to \"/admin/content/media\"\r\n      And wait\r\n     Then I should see \"Add media\"\r\n     When I fill in \"Flag Earth after edit\" for \"edit-name\"\r\n      And I press the \"Apply\" button\r\n      And wait\r\n     Then I should see \"Flag Earth after edit\"\r\n     When I click \"Edit\" in the \"Flag Earth after edit\" row\r\n      And wait\r\n     Then I should see \"Flag Earth after edit\"\r\n     When I click \"edit-delete\"\r\n      And wait\r\n     Then I should see \"This action cannot be undone.\"\r\n     When I click the delete button\r\n      And wait\r\n     Then I should see \"The media item Flag Earth after edit has been deleted.\""
+      format: gherkin

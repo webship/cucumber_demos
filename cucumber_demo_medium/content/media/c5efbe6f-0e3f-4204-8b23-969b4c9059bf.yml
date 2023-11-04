@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: c5efbe6f-0e3f-4204-8b23-969b4c9059bf
+  bundle: feature
+  default_langcode: en
+  depends:
+    0128383a-67e1-48da-bbdb-d3c24a7a3c99: taxonomy_term
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: '02-05 User Management - Standard User Management - Have fine-grained access control of user administrators protections with specific user, or all users in a role'
+  created:
+    -
+      value: 1699106860
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: to_do
+  directory:
+    -
+      entity: 0128383a-67e1-48da-bbdb-d3c24a7a3c99
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_description:
+    -
+      value: 'Scenario: Check the User protect configuration'
+      format: plain_text
+  field_media_gherkin:
+    -
+      value: "Feature: User Management - Standard User Management - Have fine-grained access control of user administrators protections with specific user, or all users in a role\r\nAs a logged in site admin\r\nI will be allowed to fine-grained access control of user administrators\r\nSo that the protections can be specific to a user, or applied to all users in a role.\r\n\r\n  @javascript @check @local @development @staging @production\r\n  Scenario: Check the User protect configuration\r\n    Given I am a logged in user with the \"webmaster\" user\r\n     When I go to \"/admin/config/people/userprotect\"\r\n      And wait\r\n     Then I should see \"Protected site admin\"\r\n      And I should see \"Protected super admin\"\r\n      And I should see \"Protected webmaster\""
+      format: gherkin

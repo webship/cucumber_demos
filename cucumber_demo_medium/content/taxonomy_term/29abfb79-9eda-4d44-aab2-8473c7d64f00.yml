@@ -1,0 +1,21 @@
+_meta:
+  version: "1.0"
+  entity_type: taxonomy_term
+  uuid: 29abfb79-9eda-4d44-aab2-8473c7d64f00
+  bundle: feature_directory
+  default_langcode: en
+default:
+  status:
+    - value: true
+  name:
+    - value: 05-content-management
+  weight:
+    - value: 0
+  parent:
+    - target_id: 0
+  revision_translation_affected:
+    - value: true
+  path:
+    - alias: ""
+      langcode: en
+      pathauto: 0

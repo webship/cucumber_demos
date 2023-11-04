@@ -1,0 +1,42 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: c40f18f5-ed3a-4d22-8d4b-37d50055ce5d
+  bundle: feature
+  default_langcode: en
+  depends:
+    3ee547ba-2445-4dce-bfe7-d6b68878eea2: taxonomy_term
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: '01-01 Website Base Requirements - User Registration - Only admins login'
+  created:
+    -
+      value: 1699105806
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: to_do
+  directory:
+    -
+      entity: 3ee547ba-2445-4dce-bfe7-d6b68878eea2
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_media_gherkin:
+    -
+      value: "Feature: Website Base Requirements - User Registration - Only admins login\r\nAs an anonymous user\r\nI will not be able to register as a user in the website\r\nSo that I will need a site admin or super admin to add me to the website\r\n\r\n  Background: \r\n    Given I am an anonymous user\r\n\r\n  @javascript @local @development @staging @production \r\n  Scenario: Check that create new account options does not appear for anonymous users\r\n     When I go to \"/user\"\r\n      And wait\r\n     Then I should not see \"Create new account\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check that only admin can create an account\r\n     When I go to \"/user/register\"\r\n      And wait\r\n     Then I should see \"You are not authorized to access this page.\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Verify that anonymous users cannot access admin pages\r\n     When I go to \"/admin\"\r\n      And wait\r\n     Then I should see \"Access denied\""
+      format: gherkin

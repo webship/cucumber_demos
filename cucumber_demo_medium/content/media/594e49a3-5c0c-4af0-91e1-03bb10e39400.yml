@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 594e49a3-5c0c-4af0-91e1-03bb10e39400
+  bundle: feature
+  default_langcode: en
+  depends:
+    29abfb79-9eda-4d44-aab2-8473c7d64f00: taxonomy_term
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: '05-07 Content Management - Content moderation workflows. Simple workflow, and Editorial workflow'
+  created:
+    -
+      value: 1699109693
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: to_do
+  directory:
+    -
+      entity: 29abfb79-9eda-4d44-aab2-8473c7d64f00
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_description:
+    -
+      value: "Scenario: Check Simple workflow on Draft, Published, and Archived and content types\r\nScenario: Check Editorial workflow on Draft, Published, In review, and Archived\r\n"
+      format: plain_text
+  field_media_gherkin:
+    -
+      value: "Feature: Content Management - Content moderation workflows. Simple workflow, and Editorial workflow\r\nAs a content admin\r\nI want to be able to manage the workflow of content in simple and editorial workflows\r\nSo that will have an easy publishing workflow with revisions.\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check Simple workflow on Draft, Published, and Archived and content types\r\n    Given I am a logged in user with the \"webmaster\" user\r\n     When I go to \"/admin/config/workflow/workflows/manage/varbase_simple_workflow\"\r\n      And wait\r\n     Then I should see \"Simple\"\r\n      And I should see \"Draft\"\r\n      And I should see \"Published\"\r\n      And I should see \"Archived / Unpublished\"\r\n      And I should see \"Create new draft\"\r\n      And I should see \"Publish\"\r\n      And I should see \"Archive / Unpublish\"\r\n      And I should see \"Restore from archive\"\r\n      And I should see \"Landing page (Layout Builder)\"\r\n      And I should see \"Landing page\"\r\n      And I should see \"Basic page\"\r\n      And I should see \"Blog post\"\r\n      And I should see \"Hero slider\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check Editorial workflow on Draft, Published, In review, and Archived\r\n    Given I am a logged in user with the \"webmaster\" user\r\n     When I go to \"/admin/config/workflow/workflows/manage/varbase_editorial_workflow\"\r\n      And wait\r\n     Then I should see \"Editorial\"\r\n      And I should see \"Draft\"\r\n      And I should see \"In review\"\r\n      And I should see \"Published\"\r\n      And I should see \"Archived / Unpublished\"\r\n      And I should see \"Create new draft\"\r\n      And I should see \"Send to review\"\r\n      And I should see \"Publish\"\r\n      And I should see \"Archive / Unpublish\"\r\n      And I should see \"Restore from archive\""
+      format: gherkin

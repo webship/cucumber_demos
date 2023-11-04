@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: be0dfeb4-c7d9-4741-b237-85347bab0eef
+  bundle: feature
+  default_langcode: en
+  depends:
+    29abfb79-9eda-4d44-aab2-8473c7d64f00: taxonomy_term
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: '05 Content Management - Add default [entityqueue] module testing content and configuration'
+  created:
+    -
+      value: 1699109149
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: to_do
+  directory:
+    -
+      entity: 29abfb79-9eda-4d44-aab2-8473c7d64f00
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_description:
+    -
+      value: "Scenario: Create Test Content type\r\nScenario: Add Entity Queue Test Queue to be used with Test Content type\r\nScenario: Add Test content N1, N2, N3 type of test content\r\nScenario: Add Test content N1, N2, N3 nodes to the Test Queue entityqueue"
+      format: plain_text
+  field_media_gherkin:
+    -
+      value: "Feature: Content Management - Add default [entityqueue] module testing content and configuration\r\n\r\n@javascript @init @tools @local @development @staging\r\nScenario: Create Test Content type\r\n  Given I am a logged in user with the \"webmaster\" user\r\n   When I go to \"/admin/structure/types/add\"\r\n    And wait\r\n   Then I should see \"Add content type\"\r\n   When I fill in \"Test Content\" for \"Name\"\r\n    And I wait for AJAX to finish\r\n    And I wait for 2 seconds\r\n    And I press \"Save and manage fields\"\r\n    And wait\r\n   Then I should see \"The content type Test Content has been added.\"\r\n\r\n@javascript @init @tools @local @development @staging\r\nScenario: Add Entity Queue Test Queue to be used with Test Content type\r\n  Given I am a logged in user with the \"webmaster\" user\r\n   When I go to \"/admin/structure/entityqueue\"\r\n    And wait\r\n   Then I should see \"Add entity queue\"\r\n   When I click \"Add entity queue\"\r\n    And wait\r\n   Then I should see \"Add entity queue\"\r\n   When I fill in \"Test Queue\" for \"Name\"\r\n    And I wait for 5 seconds\r\n    And I press \"Save\"\r\n    And wait\r\n   Then I should see \"The entity queue Test Queue has been added.\"\r\n\r\n@javascript @init @tools @local @development @staging\r\nScenario: Add Test content N1, N2, N3 type of test content\r\n  Given I am a logged in user with the \"webmaster\" user\r\n   When I go to \"/node/add/test_content\"\r\n    And wait\r\n   Then I should see \"Create Test Content\"\r\n   When I fill in \"Test content N1\" for \"Title\"\r\n    And I fill in the rich text editor field \"Body\" with \"Test content N1 Body\"\r\n    And I select \"published\" from \"edit-moderation-state-0-state\"\r\n    And I press the \"Save\" button\r\n    And wait\r\n   Then I should see \"Test Content Test content N1 has been created.\"\r\n\r\n   When I go to \"/node/add/test_content\"\r\n    And wait\r\n   Then I should see \"Create Test Content\"\r\n   When I fill in \"Test content N2\" for \"Title\"\r\n    And I fill in the rich text editor field \"Body\" with \"Test content N2 Body\"\r\n    And I select \"published\" from \"edit-moderation-state-0-state\"\r\n    And I press the \"Save\" button\r\n    And wait\r\n   Then I should see \"Test Content Test content N2 has been created.\"\r\n\r\n   When I go to \"/node/add/test_content\"\r\n    And wait\r\n   Then I should see \"Create Test Content\"\r\n   When I fill in \"Test content N3\" for \"Title\"\r\n    And I fill in the rich text editor field \"Body\" with \"Test content N3 Body\"\r\n    And I select \"published\" from \"edit-moderation-state-0-state\"\r\n    And I press the \"Save\" button\r\n    And wait\r\n   Then I should see \"Test Content Test content N3 has been created.\"\r\n\r\n@javascript @init @tools @local @development @staging\r\nScenario: Add Test content N1, N2, N3 nodes to the Test Queue entityqueue\r\n  Given I am a logged in user with the \"webmaster\" user\r\n   When I go to \"/admin/structure/entityqueue\"\r\n    And wait\r\n   Then I should see \"Test Queue\"\r\n\r\n  # Add \"Test content N1\" to the location #1 in the \"Test Queue\"\r\n   When I click \"Edit items\" in the \"Test Queue\" row\r\n    And wait\r\n   Then I should see \"Edit subqueue Test Queue\"\r\n\t When I press \"Add existing item\"\r\n    And I wait for AJAX to finish\r\n\t Then I should see \"Item\"\r\n   When I fill in \"Test content N1\" for \"items[form][0][entity_id]\"\r\n    And I press \"Add item\"\r\n    And I wait for AJAX to finish\r\n   Then I should see \"Test content N1\"\r\n\r\n  # Add \"Test content N2\" to the location #2 in the \"Test Queue\"\r\n   When I press \"Add existing item\"\r\n\t  And I wait for AJAX to finish\r\n\t Then I should see \"Item\"\r\n   When I fill in \"Test content N2\" for \"items[form][1][entity_id]\"\r\n    And I press \"Add item\"\r\n    And I wait for AJAX to finish\r\n   Then I should see \"Test content N1\"\r\n\r\n  # Add \"Test content N3\" to the location #3 in the \"Test Queue\"\r\n   When I press \"Add existing item\"\r\n\t  And I wait for AJAX to finish\r\n\t Then I should see \"Item\"\r\n   When I fill in \"Test content N3\" for \"items[form][2][entity_id]\"\r\n    And I press \"Add item\"\r\n    And I wait for AJAX to finish\r\n   Then I should see \"Test content N1\"\r\n   When I press \"Save\"\r\n    And wait\r\n   Then I should see \"3 items\" in the \"Test Queue\" row"
+      format: gherkin

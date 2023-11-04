@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 064f056e-f19b-43c0-aa64-75eb5bf0737e
+  bundle: feature
+  default_langcode: en
+  depends:
+    0128383a-67e1-48da-bbdb-d3c24a7a3c99: taxonomy_term
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: '02-04 User Management - Have persistent login options and configurations'
+  created:
+    -
+      value: 1699106811
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: to_do
+  directory:
+    -
+      entity: 0128383a-67e1-48da-bbdb-d3c24a7a3c99
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_description:
+    -
+      value: "Scenario: Check the persistent login configuration\r\nScenario: Check if an authenticated user can login and use the [Remember me] option\r\n"
+      format: plain_text
+  field_media_gherkin:
+    -
+      value: "Feature: User Management - Have persistent login options and configurations\r\n  As a user which can login to the site.\r\n  I want to have the option to have \"Remember Me\" option on the user login form.\r\n  So I can persistent my login session independent of setting of a long session lifetime.\r\n\r\n  @javascript @check @local @development @staging @production\r\n  Scenario: Check the persistent login configuration\r\n    Given I am a logged in user with the \"webmaster\" user\r\n     When I go to \"/admin/config/system/persistent_login\"\r\n      And wait\r\n     Then I should see \"Persistent Login\"\r\n      And I should see \"30\" value in the \"edit-lifetime\" input element\r\n      And I should see \"0\" value in the \"edit-max-tokens\" input element\r\n\r\n  @javascript @check @local @development @staging @production\r\n  Scenario: Check if an authenticated user can login and use the [Remember me] option\r\n    Given I am not logged in\r\n     When I go to \"/user/login\"\r\n      And wait\r\n     Then I should see \"Log in\"\r\n      And I should see \"Remember me\"\r\n     When I fill in \"Normal user\" for \"Email or username\"\r\n      And I fill in \"dD.123123ddd\" for \"Password\"\r\n      And I scroll to bottom\r\n      And I wait 2s\r\n      And I check the box \"Remember me\"\r\n      And I press the \"Log in\" button\r\n      And wait\r\n     Then I should see \"Normal user\""
+      format: gherkin

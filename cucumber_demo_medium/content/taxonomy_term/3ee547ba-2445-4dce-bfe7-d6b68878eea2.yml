@@ -1,0 +1,21 @@
+_meta:
+  version: "1.0"
+  entity_type: taxonomy_term
+  uuid: 3ee547ba-2445-4dce-bfe7-d6b68878eea2
+  bundle: feature_directory
+  default_langcode: en
+default:
+  status:
+    - value: true
+  name:
+    - value: 01-website-base-requirements
+  weight:
+    - value: 0
+  parent:
+    - target_id: 0
+  revision_translation_affected:
+    - value: true
+  path:
+    - alias: ""
+      langcode: en
+      pathauto: 0

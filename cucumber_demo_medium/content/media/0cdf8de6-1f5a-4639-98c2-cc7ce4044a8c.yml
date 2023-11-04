@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 0cdf8de6-1f5a-4639-98c2-cc7ce4044a8c
+  bundle: feature
+  default_langcode: en
+  depends:
+    3ee547ba-2445-4dce-bfe7-d6b68878eea2: taxonomy_term
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: '01-05 Website Base Requirements - Website Languages - All content translatable to all languages'
+  created:
+    -
+      value: 1699106235
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: to_do
+  directory:
+    -
+      entity: 3ee547ba-2445-4dce-bfe7-d6b68878eea2
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_description:
+    -
+      value: "Scenario: Check if site admin can translate an existing English Basic Page to an Arabic version.\r\n"
+      format: plain_text
+  field_media_gherkin:
+    -
+      value: "Feature: Website Base Requirements - Website Languages - All content translatable to all languages\r\nAs a logged in user with a permission to translate content\r\nI want to be able to check if all content types are translatable\r\nSo that I will be able to create a content then I will have the option to translate the content to other languages in the site\r\n\r\n# Run the following Gherkin Features to add Arabic language.\r\n# ../../../../bin/behat tests/features/varbase/step1-init-tests/2-add-arabic.feature\r\n\r\n# Run the following Gherkin Features After you finish work\r\n# So that you can delete Arabic language.\r\n#\r\n# ../../../../bin/behat tests/features/varbase/step3-cleanup-tests/2-delete-arabic.feature\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check if site admin can translate an existing English Basic Page to an Arabic version.\r\n    Given I am a logged in user with the \"Site admin\" user\r\n     When I go to \"/node/add/page\"\r\n      And wait 2s\r\n      And I fill in \"Test English Basic page\" for \"Title\"\r\n      And I fill in the rich text editor field \"Body\" with \"Test English Basic page body\"\r\n      And I select \"en\" from \"Language\"\r\n      And I select \"published\" from \"edit-moderation-state-0-state\"\r\n      And I press the \"Save\" button\r\n      And wait 2s\r\n     Then I should see \"Test English Basic page\"\r\n      And I should see \"Test English Basic page body\"\r\n     When I open the moderation sidebar\r\n      And I wait for ajax to finish\r\n     Then I should see \"Translate\"\r\n     When I click \"Translate\" in the \"a\" element with the \"class\" attribute set to \"moderation-sidebar-link button\"\r\n      And I wait for ajax to finish\r\n     Then I should see \"Translate\"\r\n      And I should see \"View all translations\"\r\n     When I click \"Create translation\"\r\n      And wait 2s\r\n      And I fill in \"تجربة صفحة بسيطة عربية العنوان\" for \"edit-title-0-value\"\r\n      And I fill in the rich text editor field \"edit-body-0-value\" with \"تجربة صفحة بسيطة عربية المحتوى\"\r\n      And I press the \"حفظ (this translation)\" button\r\n      And wait 2s\r\n     Then I should see \"تجربة صفحة بسيطة عربية العنوان\"\r\n     When I open the moderation sidebar\r\n      And I wait for ajax to finish\r\n     Then I should see \"ترجمة\"\r\n     When I click \"ترجمة\" in the \"a\" element with the \"class\" attribute set to \"moderation-sidebar-link button\"\r\n      And I wait for ajax to finish\r\n      And wait 2s\r\n     Then I should see \"ترجمة\"\r\n      And I should see \"View all translations\"\r\n      And wait 2s\r\n     When I click \"View all translations\"\r\n      And wait 2s\r\n     Then I should see \"Test English Basic page\""
+      format: gherkin

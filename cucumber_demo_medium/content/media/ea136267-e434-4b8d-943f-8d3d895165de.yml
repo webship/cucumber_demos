@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: ea136267-e434-4b8d-943f-8d3d895165de
+  bundle: feature
+  default_langcode: en
+  depends:
+    a6cd792a-e9f7-450e-83d6-3dc3e7e3f4f6: taxonomy_term
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: '03-01 Support Requirements - Standard Support Navigation - Allow site super administrators to switch users and surf the site as that user'
+  created:
+    -
+      value: 1699107242
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: to_do
+  directory:
+    -
+      entity: a6cd792a-e9f7-450e-83d6-3dc3e7e3f4f6
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_description:
+    -
+      value: "Scenario: Check if the webmaster user UID 1 can masquerade as any user\r\nScenario: Check if a super admin user can masquerade as any user\r\nScenario: Check if a site admin user can NOT masquerade as any user\r\nScenario: Check if a content admin user can NOT masquerade as the super user ID 1 the webmaster\r\nScenario: Check if an editor user can NOT masquerade as the super user ID 1 the webmaster\r\nScenario: Check if an authenticated user can NOT masquerade as the super user ID 1 the webmaster"
+      format: plain_text
+  field_media_gherkin:
+    -
+      value: "Feature: Support Requirements - Standard Support Navigation - Allow site super administrators to switch users and surf the site as that user\r\nAs the site super admin\r\nI want to be able to switch users and surf the site as that user with no password required\r\nSo that I can see what is the selected user is seeing in the site then switch back to my own user account at any time.\r\n\r\n@javascript @check @local @development @staging @production\r\nScenario: Check if the webmaster user UID 1 can masquerade as any user\r\n  Given I am a logged in user with the \"webmaster\" user\r\n\r\n  # Check if the webmaster user UID 1 can masquerade as an authenticated user.\r\n   When I go to \"/admin/people\"\r\n    And wait\r\n    And I fill in \"Normal user\" for \"Name or email contains\"\r\n    And I press \"Filter\"\r\n    And wait\r\n   Then I should see \"Normal user\"\r\n   When I click \"Normal user\"\r\n    And wait\r\n   Then I should see \"Masquerade as Normal user\"\r\n\r\n  # Check if the webmaster user UID 1 can masquerade as an Editor user.\r\n  #  When I go to \"/admin/people\"\r\n  #   And wait\r\n  #   And I fill in \"Editor\" for \"Name or email contains\"\r\n  #   And I press \"Filter\"\r\n  #   And wait\r\n  #   And I scroll to bottom\r\n  #  Then I should see \"Editor\"\r\n  #  When I click \"Editor\"\r\n  #   And wait\r\n  #  Then I should see \"Masquerade as Editor\"\r\n\r\n  # Check if the webmaster user UID 1 can masquerade as a content admin user.\r\n   When I go to \"/admin/people\"\r\n    And wait\r\n    And I fill in \"Content admin\" for \"Name or email contains\"\r\n    And I press \"Filter\"\r\n    And wait\r\n   Then I should see \"Content admin\"\r\n   When I click \"Content admin\"\r\n    And wait\r\n   Then I should see \"Masquerade as Content admin\"\r\n\r\n  # Check if the webmaster user UID 1 can masquerade as a site admin user.\r\n   When I go to \"/admin/people\"\r\n    And wait\r\n    And I fill in \"Site admin\" for \"Name or email contains\"\r\n    And I press \"Filter\"\r\n    And wait\r\n   Then I should see \"Site admin\"\r\n   When I click \"Site admin\"\r\n    And wait\r\n   Then I should see \"Masquerade as Site admin\"\r\n\r\n  # Check if the webmaster user UID 1 can masquerade as a super admin user.\r\n   When I go to \"/admin/people\"\r\n    And wait\r\n    And I fill in \"Super admin\" for \"Name or email contains\"\r\n    And I press \"Filter\"\r\n    And wait\r\n   Then I should see \"Super admin\"\r\n   When I click \"Super admin\"\r\n    And wait\r\n   Then I should see \"Masquerade as Super admin\"\r\n\r\n@javascript @check @local @development @staging @production\r\nScenario: Check if a super admin user can masquerade as any user\r\n  Given I am a logged in user with the \"Super admin\" user\r\n\r\n  # Check if a super admin user can masquerade as an authenticated user.\r\n   When I go to \"/admin/people\"\r\n    And wait\r\n    And I fill in \"Normal user\" for \"Name or email contains\"\r\n    And I press \"Filter\"\r\n    And wait\r\n   Then I should see \"Normal user\"\r\n   When I click \"Normal user\"\r\n    And wait\r\n   Then I should see \"Masquerade as Normal user\"\r\n\r\n  # Check if a super admin user can masquerade as an Editor user.\r\n  #  When I go to \"/admin/people\"\r\n  #   And wait\r\n  #   And I fill in \"Editor\" for \"Name or email contains\"\r\n  #   And I press \"Filter\"\r\n  #   And wait\r\n  #   And I scroll to bottom\r\n  #  Then I should see \"Editor\"\r\n  #  When I click \"Editor\"\r\n  #   And wait\r\n  #  Then I should see \"Masquerade as Editor\"\r\n\r\n  # Check if a super admin user can masquerade as a content admin user.\r\n   When I go to \"/admin/people\"\r\n    And wait\r\n    And I fill in \"Content admin\" for \"Name or email contains\"\r\n    And I press \"Filter\"\r\n    And wait\r\n   Then I should see \"Content admin\"\r\n   When I click \"Content admin\"\r\n    And wait\r\n   Then I should see \"Masquerade as Content admin\"\r\n\r\n  # Check if a super admin user can masquerade as a site admin user.\r\n   When I go to \"/admin/people\"\r\n    And wait\r\n    And I fill in \"Site admin\" for \"Name or email contains\"\r\n    And I press \"Filter\"\r\n    And wait\r\n   Then I should see \"Site admin\"\r\n   When I click \"Site admin\"\r\n    And wait\r\n   Then I should see \"Masquerade as Site admin\"\r\n\r\n  # Check if a super admin user can masquerade as the super user (UID 1) \"webmaster\".\r\n   When I go to \"/user/1\"\r\n    And wait\r\n   Then I should see \"Masquerade as webmaster\" \r\n\r\n@javascript @check @local @development @staging @production\r\nScenario: Check if a site admin user can NOT masquerade as any user\r\n  # Check if a super admin user can NOT masquerade as the super user (UID 1) \"webmaster\".\r\n  Given I am a logged in user with the \"Site admin\" user\r\n   When I go to \"/user/1\"\r\n    And wait\r\n   Then I should not see \"Masquerade as webmaster\"\r\n\r\n  # Check if a site admin user can masquerade as an authenticated user.\r\n   When I go to \"/admin/people\"\r\n    And wait\r\n    And I fill in \"Normal user\" for \"Name or email contains\"\r\n    And I press \"Filter\"\r\n    And wait\r\n   Then I should see \"Normal user\"\r\n   When I click \"Normal user\"\r\n    And wait\r\n   Then I should see \"Masquerade as Normal user\"\r\n\r\n  # Check if a site admin user can masquerade as an Editor user.\r\n  #  When I go to \"/admin/people\"\r\n  #   And wait\r\n  #   And I fill in \"Editor\" for \"Name or email contains\"\r\n  #   And I press \"Filter\"\r\n  #   And wait\r\n  #   And I scroll to bottom\r\n  #  Then I should see \"Editor\"\r\n  #  When I click \"Editor\"\r\n  #   And wait\r\n  #  Then I should see \"Masquerade as Editor\"\r\n\r\n  # Check if a site admin user can masquerade as a content admin user.\r\n   When I go to \"/admin/people\"\r\n    And wait\r\n    And I fill in \"Content admin\" for \"Name or email contains\"\r\n    And I press \"Filter\"\r\n    And wait\r\n   Then I should see \"Content admin\"\r\n   When I click \"Content admin\"\r\n    And wait\r\n   Then I should see \"Masquerade as Content admin\"\r\n\r\n@javascript @check @local @development @staging @production\r\nScenario: Check if a content admin user can NOT masquerade as the super user ID 1 the webmaster\r\n  Given I am a logged in user with the \"Content admin\" user\r\n   When I go to \"/user/1\"\r\n    And wait\r\n   Then I should not see \"Masquerade as webmaster\" \r\n\r\n@javascript @check @local @development @staging @production\r\nScenario: Check if an editor user can NOT masquerade as the super user ID 1 the webmaster\r\n  Given I am a logged in user with the \"Editor\" user\r\n   When I go to \"/user/1\"\r\n    And wait\r\n   Then I should not see \"Masquerade as webmaster\" \r\n\r\n@javascript @check @local @development @staging @production\r\nScenario: Check if an authenticated user can NOT masquerade as the super user ID 1 the webmaster\r\n  Given I am a logged in user with the \"Normal user\" user\r\n   When I go to \"/user/1\"\r\n    And wait\r\n   Then I should not see \"Masquerade as webmaster\""
+      format: gherkin

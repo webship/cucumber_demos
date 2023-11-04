@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: e53a6fd3-00ad-4c7d-b2e1-7ccd2770808c
+  bundle: feature
+  default_langcode: en
+  depends:
+    a9836901-356c-40ee-bc1b-f0e6986249d2: taxonomy_term
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: '04-09 Content Structure - Homepage Permissions with Landing Pages with Layout Builder'
+  created:
+    -
+      value: 1699108950
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: to_do
+  directory:
+    -
+      entity: a9836901-356c-40ee-bc1b-f0e6986249d2
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_description:
+    -
+      value: "Scenario: Check that user Number 1 can see and have all options to edit the Homepage which built by the Landing page (Layout Builder)\r\nScenario: Check that an anonymous users can only see the Homepage which built by the Landing page (Layout Builder)\r\nScenario: Check that an authenticated user can not edit the Homepage which built by the Landing page (Layout Builder)\r\nScenario: Check that Editor users can edit the Homepage which built by the Landing page (Layout Builder)\r\nScenario: Check that Content Admin users can edit the Homepage which built by the Landing page (Layout Builder)\r\nScenario: Check that SEO Admin users can edit the Homepage which built by the Landing page (Layout Builder)\r\nScenario: Check that Site Admin users can edit the Homepage which built by the Landing page (Layout Builder)"
+      format: plain_text
+  field_media_gherkin:
+    -
+      value: "Feature: Content Structure - Homepage Permissions with Landing Pages with Layout Builder\r\nAs a logged in user with a permission to manage Landing (Layout Builder) pages.\r\nI want to be able to edit the page layouts sections and blocks\r\nSo that the homepage can be changed with permission in an easy way and be sure it will not deleted.\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check that user Number 1 can see and have all options to edit the Homepage which built by the Landing page (Layout Builder)\r\n    Given I am a logged in user with the \"webmaster\" user\r\n     When I go to the homepage\r\n      And wait\r\n     Then I should see \"Welcome to Varbase\"\r\n      And I should see \"Media Hero Slider\"\r\n     When I open the moderation sidebar\r\n      And I wait for AJAX to finish\r\n      And I should see \"Edit content\"\r\n      And I should see \"Delete\"\r\n      And I should see \"Manage display\"\r\n      And I should see \"Layout\"\r\n      And I should see \"Revisions\"\r\n      And I should see \"Devel\"\r\n      And I should see \"Clone\"\r\n      And I should see \"Translate\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check that an anonymous users can only see the Homepage which built by the Landing page (Layout Builder)\r\n    Given I am an anonymous user\r\n     When I go to the homepage\r\n      And wait\r\n     Then I should see \"Welcome to Varbase\"\r\n      And I should see \"Media Hero Slider\"\r\n      And I should not see \"Tasks\"\r\n      And I should not see \"Edit content\"\r\n      And I should not see \"Delete\"\r\n      And I should not see \"Manage display\"\r\n      And I should not see \"Revisions\"\r\n      And I should not see \"Devel\"\r\n      And I should not see \"Clone\"\r\n      And I should not see \"Translate\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check that an authenticated user can not edit the Homepage which built by the Landing page (Layout Builder)\r\n    Given I am a logged in user with the \"Normal user\" user\r\n     When I go to the homepage\r\n      And wait\r\n     Then I should see \"Welcome to Varbase\"\r\n      And I should see \"Media Hero Slider\"\r\n      And I should not see \"Tasks\"\r\n      And I should not see \"Edit content\"\r\n      And I should not see \"Delete\"\r\n      And I should not see \"Manage display\"\r\n      And I should not see \"Revisions\"\r\n      And I should not see \"Devel\"\r\n      And I should not see \"Clone\"\r\n      And I should not see \"Translate\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check that Editor users can edit the Homepage which built by the Landing page (Layout Builder)\r\n    Given I am a logged in user with the \"Editor\" user\r\n     When I go to the homepage\r\n      And wait\r\n     Then I should see \"Welcome to Varbase\"\r\n      And I should see \"Media Hero Slider\"\r\n     When I open the moderation sidebar\r\n      And I wait for AJAX to finish\r\n      And I should see \"Edit content\"\r\n      And I should not see \"Delete\"\r\n      And I should not see \"Manage display\"\r\n      And I should see \"Layout\"\r\n      And I should see \"Revisions\"\r\n      And I should not see \"Devel\"\r\n      And I should see \"Clone\"\r\n      And I should see \"Translate\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check that Content Admin users can edit the Homepage which built by the Landing page (Layout Builder)\r\n    Given I am a logged in user with the \"Content admin\" user\r\n     When I go to the homepage\r\n      And wait\r\n     Then I should see \"Welcome to Varbase\"\r\n      And I should see \"Media Hero Slider\"\r\n     When I open the moderation sidebar\r\n      And I wait for AJAX to finish\r\n      And I should see \"Edit content\"\r\n      And I should not see \"Delete\"\r\n      And I should not see \"Manage display\"\r\n      And I should see \"Layout\"\r\n      And I should see \"Revisions\"\r\n      And I should not see \"Devel\"\r\n      And I should see \"Clone\"\r\n      And I should see \"Translate\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check that SEO Admin users can edit the Homepage which built by the Landing page (Layout Builder)\r\n    Given I am a logged in user with the \"SEO admin\" user\r\n     When I go to the homepage\r\n      And wait\r\n     Then I should see \"Welcome to Varbase\"\r\n      And I should see \"Media Hero Slider\"\r\n     When I open the moderation sidebar\r\n      And I wait for AJAX to finish\r\n      And I should see \"Edit content\"\r\n      And I should not see \"Delete\"\r\n      And I should not see \"Manage display\"\r\n      And I should see \"Revisions\"\r\n      And I should not see \"Devel\"\r\n      And I should not see \"Clone\"\r\n      And I should see \"Translate\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check that Site Admin users can edit the Homepage which built by the Landing page (Layout Builder)\r\n    Given I am a logged in user with the \"Site admin\" user\r\n     When I go to the homepage\r\n      And wait\r\n     Then I should see \"Welcome to Varbase\"\r\n      And I should see \"Media Hero Slider\"\r\n     When I open the moderation sidebar\r\n      And I wait for AJAX to finish\r\n      And I should see \"Edit content\"\r\n      And I should see \"Delete\"\r\n      And I should not see \"Manage display\"\r\n      And I should see \"Layout\"\r\n      And I should see \"Revisions\"\r\n      And I should not see \"Devel\"\r\n      And I should see \"Clone\"\r\n      And I should see \"Translate\""
+      format: gherkin

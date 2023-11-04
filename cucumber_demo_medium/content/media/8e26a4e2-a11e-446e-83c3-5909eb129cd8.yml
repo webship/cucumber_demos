@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 8e26a4e2-a11e-446e-83c3-5909eb129cd8
+  bundle: feature
+  default_langcode: en
+  depends:
+    a6cd792a-e9f7-450e-83d6-3dc3e7e3f4f6: taxonomy_term
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: '03-07 User Management - Standard User Management - Users with permission to access the Admin audit trails'
+  created:
+    -
+      value: 1699107838
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: to_do
+  directory:
+    -
+      entity: a6cd792a-e9f7-450e-83d6-3dc3e7e3f4f6
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_description:
+    -
+      value: "Scenario: Check that user Number 1 can access the Admin audit trails\r\nScenario: Check that an anonymous users can not access the Admin audit trails\r\nScenario: Check that an authenticated user can not access the Admin audit trails\r\nScenario: Check that Editor users can access the Admin audit trails\r\nScenario: Check that Content Admin users can access the Admin audit trails\r\nScenario: Check that SEO Admin users can access the Admin audit trails\r\nScenario: Check that Site Admin users can access the Admin audit trails"
+      format: plain_text
+  field_media_gherkin:
+    -
+      value: "Feature: User Management - Standard User Management - Users with permission to access the Admin audit trails\r\nAs a logged in site admin or editor with permission to access the Admin audit trails\r\nI will be able to trails of actions on the site by the same user and or users\r\nSo that only users with permission can see trails of audit changes on the website\r\n\r\n  @javascript @check @local @development @staging @production\r\n  Scenario: Check that user Number 1 can access the Admin audit trails\r\n    Given I am a logged in user with the \"webmaster\" user\r\n     When I go to \"/admin/reports/audit-trail\"\r\n      And wait\r\n     Then I should see \"Admin audit trails\"\r\n\r\n  @javascript @check @local @development @staging @production\r\n  Scenario: Check that an anonymous users can not access the Admin audit trails\r\n    Given I am an anonymous user\r\n     When I go to \"/admin/reports/audit-trail\"\r\n      And wait\r\n     Then I should not see \"Admin audit trails\"\r\n      And I should see \"Access denied\"\r\n\r\n  @javascript @check @local @development @staging @production\r\n  Scenario: Check that an authenticated user can not access the Admin audit trails\r\n    Given I am a logged in user with the \"Normal user\" user\r\n     When I go to \"/admin/reports/audit-trail\"\r\n      And wait\r\n     Then I should not see \"Admin audit trails\"\r\n      And I should see \"Access denied\"\r\n\r\n  @javascript @check @local @development @staging @production\r\n  Scenario: Check that Editor users can access the Admin audit trails\r\n    Given I am a logged in user with the \"Editor\" user\r\n     When I go to \"/admin/reports/audit-trail\"\r\n      And wait\r\n     Then I should see \"Admin audit trails\"\r\n\r\n  @javascript @check @local @development @staging @production\r\n  Scenario: Check that Content Admin users can access the Admin audit trails\r\n    Given I am a logged in user with the \"Content admin\" user\r\n     When I go to \"/admin/reports/audit-trail\"\r\n      And wait\r\n     Then I should see \"Admin audit trails\"\r\n\r\n  @javascript @check @local @development @staging @production\r\n  Scenario: Check that SEO Admin users can access the Admin audit trails\r\n    Given I am a logged in user with the \"SEO admin\" user\r\n     When I go to \"/admin/reports/audit-trail\"\r\n      And wait\r\n     Then I should see \"Admin audit trails\"\r\n\r\n  @javascript @check @local @development @staging @production\r\n  Scenario: Check that Site Admin users can access the Admin audit trails\r\n    Given I am a logged in user with the \"Site admin\" user\r\n     When I go to \"/admin/reports/audit-trail\"\r\n      And wait\r\n     Then I should see \"Admin audit trails\""
+      format: gherkin

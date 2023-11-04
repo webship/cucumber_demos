@@ -1,0 +1,42 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: d0a80a7f-621e-4473-a6b1-695be8d5e85d
+  bundle: feature
+  default_langcode: en
+  depends:
+    3ee547ba-2445-4dce-bfe7-d6b68878eea2: taxonomy_term
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: '01-03 Content Editing - Rich Text Editor - Input formats'
+  created:
+    -
+      value: 1699105964
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: to_do
+  directory:
+    -
+      entity: 3ee547ba-2445-4dce-bfe7-d6b68878eea2
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_media_gherkin:
+    -
+      value: "Feature: Content Editing - Rich Text Editor - Input formats\r\nAs a logged in user with a permission to edit content\r\nI want to be able to switch between input formats\r\nSo that can use different type of rich text editors.\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check if Site Admin user can change the text format for the body of Basic page\r\n    Given I am a logged in user with the \"Site admin\"\r\n     When I go to \"/node/add/page\"\r\n      And wait\r\n     Then I should see \"Create Basic page\"\r\n      And I should see \"Body\"\r\n      And I should not see \"HTML Editor\"\r\n\r\n     When I select \"full_html\" from \"body[0][format]\"\r\n      And I wait for AJAX to finish\r\n     Then I should see the \".ck.ck-editor__main\" element in the \"field body\"\r\n\r\n     When I select \"basic_html\" from \"body[0][format]\"\r\n      And I wait for AJAX to finish\r\n     Then I should see the \".ck.ck-editor__main\" element in the \"field body\"\r\n\r\n     When I select \"code_html\" from \"body[0][format]\"\r\n      And I wait for AJAX to finish\r\n     Then I should see the \"#edit-body-0-value\" element in the \"field body\"\r\n      And I should not see the \".ck.ck-editor__main\" element in the \"field body\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check if Super Admin user can change the text format for the body of Basic page\r\n    Given I am a logged in user with the \"Super admin\"\r\n     When I go to \"/node/add/page\"\r\n      And wait\r\n     Then I should see \"Create Basic page\"\r\n      And I should see \"Body\"\r\n\r\n     When I select \"full_html\" from \"body[0][format]\"\r\n      And I wait for AJAX to finish\r\n     Then I should see the \".ck.ck-editor__main\" element in the \"field body\"\r\n\r\n     When I select \"basic_html\" from \"body[0][format]\"\r\n      And I wait for AJAX to finish\r\n     Then I should see the \".ck.ck-editor__main\" element in the \"field body\"\r\n\r\n     When I select \"code_html\" from \"body[0][format]\"\r\n      And I wait for AJAX to finish\r\n     Then I should see the \"#edit-body-0-value\" element in the \"field body\"\r\n      And I should not see the \".ck.ck-editor__main\" element in the \"field body\""
+      format: gherkin

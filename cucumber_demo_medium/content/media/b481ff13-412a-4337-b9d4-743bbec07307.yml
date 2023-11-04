@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: b481ff13-412a-4337-b9d4-743bbec07307
+  bundle: feature
+  default_langcode: en
+  depends:
+    29abfb79-9eda-4d44-aab2-8473c7d64f00: taxonomy_term
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: '05-02 Content Management - Standard Entity Queue Management - Have Entity queue tab inside the full content page and be able to Add to a queue or Remove from a queue'
+  created:
+    -
+      value: 1699109299
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: to_do
+  directory:
+    -
+      entity: 29abfb79-9eda-4d44-aab2-8473c7d64f00
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_description:
+    -
+      value: "Scenario: Check if queuable content have the Entityqueue tab at the full content page and can Add to queue or Remove from queue\r\n"
+      format: plain_text
+  field_media_gherkin:
+    -
+      value: "Feature: Content Management - Standard Entity Queue Management - Have Entity queue tab inside the full content page and be able to Add to a queue or Remove from a queue\r\nAs a logged in user with a permission to manage entity queues\r\nI well be able to see an Entity queue tab inside the full content page of a selected content\r\nSo that I can Add to queue or Remove from queue for the content.\r\n\r\n@javascript @local @development\r\nScenario: Check if queuable content have the Entityqueue tab at the full content page and can Add to queue or Remove from queue\r\n  Given I am a logged in user with the \"Super admin\" user\r\n   When I go to \"/node/add/test_content\"\r\n    And wait\r\n   Then I should see \"Create Test Content\"\r\n   When I fill in \"Test tab content number 1\" for \"Title\"\r\n    And I fill in the rich text editor field \"Body\" with \"Test tab content number 1 Body\"\r\n    And I press \"Save\"\r\n    And wait\r\n   Then I should see \"Test Content Test tab content number 1 has been created.\"\r\n\t When I open the moderation sidebar\r\n\t\tAnd I wait for AJAX to finish\r\n    And I should see \"Entityqueue\"\r\n   When I click \"Entityqueue\"\r\n    And wait\r\n   Then I should see \"Add to queue\"\r\n   When I click \"Add to queue\"\r\n    And I wait for AJAX to finish\r\n   Then I should see \"Remove from queue\"\r\n   When I click \"Remove from queue\"\r\n    And I wait for AJAX to finish\r\n   Then I should see \"Add to queue\""
+      format: gherkin

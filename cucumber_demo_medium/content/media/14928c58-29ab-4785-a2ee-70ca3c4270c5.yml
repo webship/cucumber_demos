@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 14928c58-29ab-4785-a2ee-70ca3c4270c5
+  bundle: feature
+  default_langcode: en
+  depends:
+    a6cd792a-e9f7-450e-83d6-3dc3e7e3f4f6: taxonomy_term
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: '03-03 User Management - Standard User Management - Admins can disable users'
+  created:
+    -
+      value: 1699107432
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: to_do
+  directory:
+    -
+      entity: a6cd792a-e9f7-450e-83d6-3dc3e7e3f4f6
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_description:
+    -
+      value: "Scenario: Check if the Normal user user is not blocked and can login\r\nScenario: Check if the site admin can Administer users and disable a User account Normal user from accessing the site\r\nScenario: Check if the blocked user with user id of Test Blocked User ID can or can not login\r\nScenario: Check flood control default settings\r\nScenario: Check that the Site Admin have access to the flood unblock page"
+      format: plain_text
+  field_media_gherkin:
+    -
+      value: "Feature: User Management - Standard User Management - Admins can disable users\r\nAs a site admin user\r\nI want to be able Block user accounts\r\nSo that they will be disabled and not be able to use the site.\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check if the Normal user user is not blocked and can login\r\n    Given I am on \"/user/login\"\r\n      And I wait 6s\r\n     When I fill in \"Normal user\" for \"Email or username\"\r\n      And I fill in \"dD.123123ddd\" for \"Password\"\r\n      And I scroll to bottom\r\n      And I wait 2s\r\n      And I press \"Log in\"\r\n      And wait\r\n     Then I should see \"Normal user\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check if the site admin can Administer users and disable a User account Normal user from accessing the site\r\n    Given I am a logged in user with the \"Site admin\" user\r\n     When I go to \"/admin/people\"\r\n      And wait\r\n     Then I should see \"People\"\r\n     When I fill in \"Normal user\" for \"Name or email contains\"\r\n      And I press \"Filter\"\r\n      And wait\r\n     Then I should see \"Normal user\"\r\n     When I click \"Edit\" in the \"Normal user\" row\r\n      And wait\r\n     Then I should see \"Normal user\"\r\n     When I select the radio button \"Blocked\"\r\n      And I press the \"Save\" button\r\n      And wait\r\n     Then I should see \"The changes have been saved.\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check if the blocked user with user id of Test Blocked User ID can or can not login\r\n    Given I am on \"/user/login\"\r\n      And I wait 6s\r\n     When I fill in \"Normal user\" for \"Email or username\"\r\n      And I fill in \"dD.123123ddd\" for \"Password\"\r\n      And I scroll to bottom\r\n      And I wait 2s\r\n      And I press \"Log in\"\r\n      And wait\r\n     Then I should see \"1 error has been found\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check flood control default settings\r\n    Given I am a logged in user with the \"webmaster\" user\r\n     When I go to \"/admin/config/people/flood-control\"\r\n      And wait\r\n     Then I should see \"Flood control\"\r\n      And I should see \"50\" in the \"#edit-ip-limit\" element\r\n      And I should see \"1 hour\" in the \"#edit-ip-window\" element\r\n      And I should see \"5\" in the \"#edit-user-limit\" element\r\n      And I should see \"6 hours\" in the \"#edit-user-window\" element\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check that the Site Admin have access to the flood unblock page\r\n    Given I am a logged in user with the \"Site admin\" user\r\n     When I go to \"/admin/people/flood-unblock\"\r\n      And wait\r\n     Then I should see \"Flood Unblock\""
+      format: gherkin

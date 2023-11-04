@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 91befeac-06fd-4718-9fd9-02baa18c4646
+  bundle: feature
+  default_langcode: en
+  depends:
+    3ee547ba-2445-4dce-bfe7-d6b68878eea2: taxonomy_term
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: '01-06 Content Editing - Rich Text Editor - Convert URLs into links'
+  created:
+    -
+      value: 1699106322
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: to_do
+  directory:
+    -
+      entity: 3ee547ba-2445-4dce-bfe7-d6b68878eea2
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_description:
+    -
+      value: "Scenario: Check if inserted raw URL will convert into a link using the \"Rich editor\" text format when we save a new Basic page\r\n"
+      format: plain_text
+  field_media_gherkin:
+    -
+      value: "Feature: Content Editing - Rich Text Editor - Convert URLs into links\r\nAs a logged in user with a permission to use the rich text editor\r\nI want to add raw URLs and links in the rich text editor\r\nSo that they will be converted to links and visitors can click on them.\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check if inserted raw URL will convert into a link using the \"Rich editor\" text format when we save a new Basic page\r\n    Given I am a logged in user with the \"Site admin\" user\r\n     When I go to \"/node/add/page\"\r\n      And wait\r\n     Then I should see \"Create Basic page\"\r\n     When I select \"full_html\" from \"body[0][format]\"\r\n      And I fill in \"Test convert URLs\" for \"Title\"\r\n      And I fill in the rich text editor field \"Body\" with \"<p>Test line #1 <br /> Test line #2 http://drupal.org <br /> Test line #3</p>\"\r\n     Then I press \"Save\"\r\n      And wait\r\n      And I should see \"Test line #1\"\r\n      And I should see \"Test line #2 http://drupal.org\"\r\n      And I should see \"Test line #3\""
+      format: gherkin

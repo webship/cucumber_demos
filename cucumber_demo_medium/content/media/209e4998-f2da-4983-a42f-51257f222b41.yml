@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 209e4998-f2da-4983-a42f-51257f222b41
+  bundle: feature
+  default_langcode: en
+  depends:
+    a9836901-356c-40ee-bc1b-f0e6986249d2: taxonomy_term
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: '04-07 Content Structure - Landing Pages with Layout Builder'
+  created:
+    -
+      value: 1699108694
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: to_do
+  directory:
+    -
+      entity: a9836901-356c-40ee-bc1b-f0e6986249d2
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_description:
+    -
+      value: "Scenario: Check if we do have the Landing page (Layout Builder) content type\r\nScenario: Check that the Landing page (Layout Builder) content type has the layout fields\r\nScenario: Check that an Anonymous users can not create a Landing page (Layout Builder)\r\nScenario: Check that an authenticated user can not create a Landing page (Layout Builder)\r\nScenario: Check that Editor users can create a Landing page (Layout Builder)\r\nScenario: Check that Content Admin users can create a Landing page (Layout Builder)\r\nScenario: Check that SEO Admin users can create a Landing page (Layout Builder)\r\nScenario: Check that Site Admin users can create a Landing page (Layout Builder)"
+      format: plain_text
+  field_media_gherkin:
+    -
+      value: "Feature: Content Structure - Landing Pages with Layout Builder\r\nAs a logged in user with a permission to manage Landing (Layout Builder) pages.\r\nI want to be able to add a \"Landing page (Layout Builder)\" which has got predefined set of layouts\r\nSo that the \"Landing page (Layout Builder)\" will show up in the structured menu under its parent page\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check if we do have the Landing page (Layout Builder) content type\r\n    Given I am a logged in user with the \"webmaster\" user\r\n     When I go to \"/admin/structure/types\"\r\n      And wait\r\n     Then I should see \"Landing page (Layout Builder)\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check that the Landing page (Layout Builder) content type has the layout fields\r\n    Given I am a logged in user with the \"webmaster\" user\r\n     When I go to \"/admin/structure/types/manage/landing_page_lb/fields\"\r\n      And wait\r\n     Then I should see \"layout_builder__layout\"\r\n      And I should see \"layout_selection\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check that an Anonymous users can not create a Landing page (Layout Builder)\r\n    Given I am an anonymous user\r\n     When I go to \"/node/add/landing_page_lb\"\r\n      And wait\r\n     Then I should see \"Access denied\"\r\n      And I should see \"You are not authorized to access this page.\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check that an authenticated user can not create a Landing page (Layout Builder)\r\n    Given I am a logged in user with the \"Normal user\" user\r\n     When I go to \"/node/add/landing_page_lb\"\r\n      And wait\r\n     Then I should see \"Access denied\"\r\n      And I should see \"You are not authorized to access this page.\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check that Editor users can create a Landing page (Layout Builder)\r\n    Given I am a logged in user with the \"Editor\" user\r\n     When I go to \"/node/add/landing_page_lb\"\r\n      And wait\r\n     Then I should not see \"Access denied\"\r\n      And I should not see \"You are not authorized to access this page.\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check that Content Admin users can create a Landing page (Layout Builder)\r\n    Given I am a logged in user with the \"Content admin\" user\r\n     When I go to \"/node/add/landing_page_lb\"\r\n      And wait\r\n     Then I should not see \"Access denied\"\r\n      And I should not see \"You are not authorized to access this page.\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check that SEO Admin users can create a Landing page (Layout Builder)\r\n    Given I am a logged in user with the \"SEO admin\" user\r\n     When I go to \"/node/add/landing_page_lb\"\r\n      And wait\r\n     Then I should not see \"Access denied\"\r\n      And I should not see \"You are not authorized to access this page.\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check that Site Admin users can create a Landing page (Layout Builder)\r\n    Given I am a logged in user with the \"Site admin\" user\r\n     When I go to \"/node/add/landing_page_lb\"\r\n      And wait\r\n     Then I should not see \"Access denied\"\r\n      And I should not see \"You are not authorized to access this page.\""
+      format: gherkin

@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 9ba31b60-a32b-4e7e-be63-64ad84777f01
+  bundle: feature
+  default_langcode: en
+  depends:
+    a9836901-356c-40ee-bc1b-f0e6986249d2: taxonomy_term
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: '04-03 Landing page (Paragraphs) - Add any paragraph types to the page'
+  created:
+    -
+      value: 1699108382
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: to_do
+  directory:
+    -
+      entity: a9836901-356c-40ee-bc1b-f0e6986249d2
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_description:
+    -
+      value: "Scenario: Upload the \"Embed Flag Earth\" file\r\nScenario: Check Varbase Bootstrap Paragraphs settings\r\nScenario: Check if a user with a permission to manage Landing page (Paragraphs) content type can add paragraphs of type Drupal Block\r\nScenario: Check if a user with a permission to manage Landing page (Paragraphs) content type can add paragraphs of type Columns Equal\r\nScenario: Check if a user with a permission to manage Landing page (Paragraphs) content type can add paragraphs of type Columns Two Uneven\r\nScenario: Check if a user with a permission to manage Landing page (Paragraphs) content type can add paragraphs of type Rich Text\r\nScenario: Check if a user with a permission to manage Landing page (Paragraphs) content type can add paragraphs of type WebForm"
+      format: plain_text
+  field_media_gherkin:
+    -
+      value: "Feature: Landing page (Paragraphs) - Add any paragraph types to the page\r\nAs a logged in user with a permission to mange Landing pages\r\nI want to be able to add any paragraph type to the page\r\nSo that the Landing page (Paragraphs) will show up having paragrpahs of different types\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Upload the \"Embed Flag Earth\" file\r\n     Given I am a logged in user with the \"Site admin\" user\r\n      When I go to \"/media/add/image\"\r\n       And wait\r\n      Then I should see \"Allowed types: png gif jpg jpeg.\"\r\n      When I attach the file \"flag-earth.jpg\" to \"edit-field-media-image-0-upload\"\r\n       And wait\r\n       And I press the \"Save\" button\r\n       And wait\r\n       And I fill in \"Embed Flag Earth in space\" for \"field_media_image[0][alt]\"\r\n       And I fill in \"Embed Flag Earth all earth in space\" for \"field_media_image[0][title]\"\r\n       And I fill in \"Embed Flag Earth\" for \"name[0][value]\"\r\n       And I check the box \"Show in media library\"\r\n       And I press the \"Save\" button\r\n       And wait\r\n      Then I should see \"Embed Flag Earth\"\r\n  #-----------------------------------------------------------------------------\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check Varbase Bootstrap Paragraphs settings\r\n    Given I am a logged in user with the \"webmaster\" user\r\n     When I go to \"/admin/config/varbase/varbase-bootstrap-paragraphs\"\r\n      And wait\r\n     Then I should see \"Varbase Bootstrap Paragraphs settings\"\r\n      And I should see \"Available CSS styles (classes) for Varbase Bootstrap Paragraphs\"\r\n      And I press \"Save configuration\"\r\n     Then I should see \"The configuration options have been saved.\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check if a user with a permission to manage Landing page (Paragraphs) content type can add paragraphs of type Drupal Block\r\n    Given I am a logged in user with the \"Site admin\" user\r\n     When I go to \"/node/add/landing_page\"\r\n      And wait\r\n      And I fill in \"Test Landing page Drupal Block\" for \"Title\"\r\n      And I fill in \"Test Landing page description Drupal Block\" for \"Page description\"\r\n      And I wait for AJAX to finish\r\n      And I wait for 1 second\r\n      And I press \"Add Component\"\r\n      And I wait for AJAX to finish\r\n      And I wait for 1 second\r\n      And I select the \"bp_block\" paragraph component\r\n      And I wait for AJAX to finish\r\n     Then I should see \"Block\"\r\n     When I select \"Site branding\" from \"Block\"\r\n      And wait\r\n      And I select \"published\" from \"edit-moderation-state-0-state\"\r\n      And I press the \"Save\" button\r\n      And wait\r\n     Then I should see \"Landing page (Paragraphs) Test Landing page Drupal Block has been created\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check if a user with a permission to manage Landing page (Paragraphs) content type can add paragraphs of type Columns Equal\r\n    Given I am a logged in user with the \"Site admin\" user\r\n     When I go to \"/node/add/landing_page\"\r\n      And wait\r\n      And I fill in \"Test Landing page Columns (Equal)\" for \"Title\"\r\n      And I fill in \"Test Landing page description Columns (Equal)\" for \"Page description\"\r\n      And I wait for AJAX to finish\r\n      And I wait for 1 second\r\n      And I press \"Add Component\"\r\n      And I wait for AJAX to finish\r\n      And I wait for 1 second\r\n      And I select the \"bp_columns\" paragraph component\r\n      And I wait for AJAX to finish\r\n      And I select \"published\" from \"edit-moderation-state-0-state\"\r\n      And I press the \"Save\" button\r\n      And wait\r\n     Then I should see \"Landing page (Paragraphs) Test Landing page Columns (Equal) has been created\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check if a user with a permission to manage Landing page (Paragraphs) content type can add paragraphs of type Columns Two Uneven\r\n    Given I am a logged in user with the \"Site admin\" user\r\n     When I go to \"/node/add/landing_page\"\r\n      And wait\r\n      And I fill in \"Test Landing page Columns (Two Uneven)\" for \"Title\"\r\n      And I fill in \"Test Landing page description Columns (Two Uneven)\" for \"Page description\"\r\n      And I wait for AJAX to finish\r\n      And I wait for 1 second\r\n      And I press \"Add Component\"\r\n      And I wait for AJAX to finish\r\n      And I wait for 1 second\r\n      And I select the \"bp_columns_two_uneven\" paragraph component\r\n      And I wait for AJAX to finish\r\n      And I select \"published\" from \"edit-moderation-state-0-state\"\r\n      And I press the \"Save\" button\r\n      And wait\r\n     Then I should see \"Landing page (Paragraphs) Test Landing page Columns (Two Uneven) has been created\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check if a user with a permission to manage Landing page (Paragraphs) content type can add paragraphs of type Rich Text\r\n    Given I am a logged in user with the \"Site admin\" user\r\n     When I go to \"/node/add/landing_page\"\r\n      And wait\r\n      And I fill in \"Test Landing page Rich Text\" for \"Title\"\r\n      And I fill in \"Test Landing page description Rich Text\" for \"Page description\"\r\n      And I wait for AJAX to finish\r\n      And I wait for 1 second\r\n      And I press \"Add Component\"\r\n      And I wait for AJAX to finish\r\n      And I wait for 1 second\r\n      And I select the \"bp_simple\" paragraph component\r\n      And I wait for AJAX to finish\r\n     Then I should see \"Components\"\r\n     When I fill in the rich text editor field \"Text\" with \"Rich Text test\"\r\n      And I select \"published\" from \"edit-moderation-state-0-state\"\r\n      And I press the \"Save\" button\r\n      And wait\r\n     Then I should see \"Landing page (Paragraphs) Test Landing page Rich Text has been created\"\r\n      And I should see \"Rich Text test\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Check if a user with a permission to manage Landing page (Paragraphs) content type can add paragraphs of type WebForm\r\n    Given I am a logged in user with the \"Site admin\" user\r\n     When I go to \"/node/add/landing_page\"\r\n      And wait\r\n      And I fill in \"Test Landing page WebForm\" for \"Title\"\r\n      And I fill in \"Test Landing page description WebForm\" for \"Page description\"\r\n      And I wait for AJAX to finish\r\n      And I wait for 1 second\r\n      And I press \"Add Component\"\r\n      And I wait for AJAX to finish\r\n      And I wait for 1 second\r\n      And I select the \"bp_webform\" paragraph component\r\n      And I wait for AJAX to finish\r\n     Then I should see \"Components\"\r\n     When I select \"Contact\" from \"Webform\"\r\n      And wait\r\n      And I select \"published\" from \"edit-moderation-state-0-state\"\r\n      And I press the \"Save\" button\r\n      And wait\r\n     Then I should see \"Landing page (Paragraphs) Test Landing page WebForm has been created\""
+      format: gherkin

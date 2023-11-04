@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 9a772506-dcbe-46d9-9d9d-e33d9b07de87
+  bundle: feature
+  default_langcode: en
+  depends:
+    a9836901-356c-40ee-bc1b-f0e6986249d2: taxonomy_term
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: '04-05 Navigational Features - Breadcrumbs - Standard breadcrumbs'
+  created:
+    -
+      value: 1699108503
+  revision_translation_affected:
+    -
+      value: true
+  moderation_state:
+    -
+      value: to_do
+  directory:
+    -
+      entity: a9836901-356c-40ee-bc1b-f0e6986249d2
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 0
+  field_description:
+    -
+      value: "Scenario: Add the Test Basic page root page to the main menu\r\nScenario: Add the Test Basic page sub 1, then check the breadcrumb\r\n"
+      format: plain_text
+  field_media_gherkin:
+    -
+      value: "Feature: Navigational Features - Breadcrumbs - Standard breadcrumbs\r\nAs a Visitor to the site\r\nI want to be able to see the back path\r\nSo that I can see path I followed to locate the current page usually near the top of the page\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Add the Test Basic page root page to the main menu\r\n    Given I am a logged in user with the \"Site admin\" user\r\n     When I go to \"/node/add/page\"\r\n      And wait\r\n      And I fill in \"Test Basic page root title\" for \"Title\"\r\n      And I fill in the rich text editor field \"Body\" with \"Test Basic page root body\"\r\n      And I expand the field \"edit-menu\"\r\n      And wait\r\n      And I check the box \"Provide a menu link\"\r\n      And I select \"<Main navigation>\" from \"Parent link\"\r\n      And I select \"published\" from \"edit-moderation-state-0-state\"\r\n      And I press the \"Save\" button\r\n      And wait\r\n     Then I should see \"Test Basic page root title\"\r\n      And I should see \"Test Basic page root body\"\r\n\r\n  @javascript @local @development @staging @production\r\n  Scenario: Add the Test Basic page sub 1, then check the breadcrumb\r\n    Given I am a logged in user with the \"Site admin\" user\r\n     When I go to \"/node/add/page\"\r\n      And wait\r\n      And I fill in \"Test Basic page sub 1 title\" for \"Title\"\r\n      And I fill in the rich text editor field \"Body\" with \"Test Basic page sub 1 body\"\r\n      And I expand the field \"edit-menu\"\r\n      And wait\r\n      And I check the box \"Provide a menu link\"\r\n      And I select \"Test Basic page root title\" from \"Parent link\"\r\n      And I select \"published\" from \"edit-moderation-state-0-state\"\r\n      And I press the \"Save\" button\r\n      And wait\r\n     Then I should see \"Basic page Test Basic page sub 1 title has been created.\"\r\n      And I should see \"Test Basic page sub 1 body\"\r\n      And I should see \"Test Basic page root title\""
+      format: gherkin

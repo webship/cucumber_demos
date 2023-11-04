@@ -1,0 +1,158 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 910fce7f-a6e5-4567-856c-ddec3708732c
+  bundle: product
+  default_langcode: en
+  depends:
+    56088c61-0b19-4d76-b65e-ce2b7dfddb45: media
+    c40f18f5-ed3a-4d22-8d4b-37d50055ce5d: media
+    fab1ad60-41b1-4f08-8dfa-b1d007e9a13a: media
+    d0a80a7f-621e-4473-a6b1-695be8d5e85d: media
+    e774111c-b2f9-4cca-ad29-24410bf75f0b: media
+    0cdf8de6-1f5a-4639-98c2-cc7ce4044a8c: media
+    91befeac-06fd-4718-9fd9-02baa18c4646: media
+    ab94767e-a333-4149-aa06-d5d7b393b581: media
+    ad83f08f-d43b-4b8f-9e8a-5e2de53acd9a: media
+    8d307dbb-14f7-461a-9a4e-0e105ecc9a8e: media
+    6cd95eaf-338f-4d8f-a239-3bda3dc34233: media
+    064f056e-f19b-43c0-aa64-75eb5bf0737e: media
+    c5efbe6f-0e3f-4204-8b23-969b4c9059bf: media
+    667f3e28-6072-4afb-97e7-ec4110c69aa6: media
+    ff9a2402-c0e5-496e-946b-05e6d3b7592f: media
+    ea136267-e434-4b8d-943f-8d3d895165de: media
+    59d3e456-3b86-45af-a64f-f3a2ad848ab3: media
+    14928c58-29ab-4785-a2ee-70ca3c4270c5: media
+    5a481c81-b41a-408f-9731-8eaa18e257ec: media
+    27635278-fbe0-4c85-a4d4-da74fc159eb7: media
+    b4230a49-333d-493e-aa00-edae6b4e6b14: media
+    8e26a4e2-a11e-446e-83c3-5909eb129cd8: media
+    2aa2d655-a8cb-4a0a-bd12-0eaa27d009a0: media
+    05fffa69-1c2d-4ca7-911a-40a4c550b51e: media
+    a37f8315-1271-4be8-ad37-ae75168a6d9e: media
+    9ba31b60-a32b-4e7e-be63-64ad84777f01: media
+    ef84d397-cd1a-4908-8338-a7600d8d7a9b: media
+    9a772506-dcbe-46d9-9d9d-e33d9b07de87: media
+    be89fae7-e0e3-4a03-bda9-5ef5fa41ddae: media
+    209e4998-f2da-4983-a42f-51257f222b41: media
+    f92938a4-f490-4c85-a1e7-50eae0ac4667: media
+    e53a6fd3-00ad-4c7d-b2e1-7ccd2770808c: media
+    be0dfeb4-c7d9-4741-b237-85347bab0eef: media
+    77a5f753-8684-4c4f-b113-76eac6504d35: media
+    b481ff13-412a-4337-b9d4-743bbec07307: media
+    46d16912-7d68-4c08-8ed7-6a3e2e8393f9: media
+    a49b97bf-82d0-44f6-a22b-37391ab7d27c: media
+    2f9da8f0-a676-477c-803d-6c805bc703aa: media
+    9c14892e-4f0e-4128-a66c-259dcab5d330: media
+    594e49a3-5c0c-4af0-91e1-03bb10e39400: media
+    39eb6fdf-27dd-41cf-aa32-c32528fb6da7: media
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: Varbase
+  created:
+    -
+      value: 1699105302
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  path:
+    -
+      alias: /products/varbase
+      langcode: en
+      pathauto: 1
+  field_features:
+    -
+      entity: 56088c61-0b19-4d76-b65e-ce2b7dfddb45
+    -
+      entity: c40f18f5-ed3a-4d22-8d4b-37d50055ce5d
+    -
+      entity: fab1ad60-41b1-4f08-8dfa-b1d007e9a13a
+    -
+      entity: d0a80a7f-621e-4473-a6b1-695be8d5e85d
+    -
+      entity: e774111c-b2f9-4cca-ad29-24410bf75f0b
+    -
+      entity: 0cdf8de6-1f5a-4639-98c2-cc7ce4044a8c
+    -
+      entity: 91befeac-06fd-4718-9fd9-02baa18c4646
+    -
+      entity: ab94767e-a333-4149-aa06-d5d7b393b581
+    -
+      entity: ad83f08f-d43b-4b8f-9e8a-5e2de53acd9a
+    -
+      entity: 8d307dbb-14f7-461a-9a4e-0e105ecc9a8e
+    -
+      entity: 6cd95eaf-338f-4d8f-a239-3bda3dc34233
+    -
+      entity: 064f056e-f19b-43c0-aa64-75eb5bf0737e
+    -
+      entity: c5efbe6f-0e3f-4204-8b23-969b4c9059bf
+    -
+      entity: 667f3e28-6072-4afb-97e7-ec4110c69aa6
+    -
+      entity: ff9a2402-c0e5-496e-946b-05e6d3b7592f
+    -
+      entity: ea136267-e434-4b8d-943f-8d3d895165de
+    -
+      entity: 59d3e456-3b86-45af-a64f-f3a2ad848ab3
+    -
+      entity: 14928c58-29ab-4785-a2ee-70ca3c4270c5
+    -
+      entity: 5a481c81-b41a-408f-9731-8eaa18e257ec
+    -
+      entity: 27635278-fbe0-4c85-a4d4-da74fc159eb7
+    -
+      entity: b4230a49-333d-493e-aa00-edae6b4e6b14
+    -
+      entity: 8e26a4e2-a11e-446e-83c3-5909eb129cd8
+    -
+      entity: 2aa2d655-a8cb-4a0a-bd12-0eaa27d009a0
+    -
+      entity: 05fffa69-1c2d-4ca7-911a-40a4c550b51e
+    -
+      entity: a37f8315-1271-4be8-ad37-ae75168a6d9e
+    -
+      entity: 9ba31b60-a32b-4e7e-be63-64ad84777f01
+    -
+      entity: ef84d397-cd1a-4908-8338-a7600d8d7a9b
+    -
+      entity: 9a772506-dcbe-46d9-9d9d-e33d9b07de87
+    -
+      entity: be89fae7-e0e3-4a03-bda9-5ef5fa41ddae
+    -
+      entity: 209e4998-f2da-4983-a42f-51257f222b41
+    -
+      entity: f92938a4-f490-4c85-a1e7-50eae0ac4667
+    -
+      entity: e53a6fd3-00ad-4c7d-b2e1-7ccd2770808c
+    -
+      entity: be0dfeb4-c7d9-4741-b237-85347bab0eef
+    -
+      entity: 77a5f753-8684-4c4f-b113-76eac6504d35
+    -
+      entity: b481ff13-412a-4337-b9d4-743bbec07307
+    -
+      entity: 46d16912-7d68-4c08-8ed7-6a3e2e8393f9
+    -
+      entity: a49b97bf-82d0-44f6-a22b-37391ab7d27c
+    -
+      entity: 2f9da8f0-a676-477c-803d-6c805bc703aa
+    -
+      entity: 9c14892e-4f0e-4128-a66c-259dcab5d330
+    -
+      entity: 594e49a3-5c0c-4af0-91e1-03bb10e39400
+    -
+      entity: 39eb6fdf-27dd-41cf-aa32-c32528fb6da7
