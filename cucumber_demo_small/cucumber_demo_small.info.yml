@@ -4,4 +4,5 @@ description: 'A small demo content for the Cucumber profile installation website
 core_version_requirement: ~10
 package: 'Webship'
 dependencies:
-  - cucumber_demo:cucumber_demo
+  - cucumber_demos:cucumber_demos
+  - cucumber_project:cucumber_project
