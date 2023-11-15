@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * @file
+ * Install functions for the Cucumber Demo Medium module.
+ */
+
+/**
+ * Implements hook_enable().
+ */
+function cucumber_demo_medium_install() {
+  $moduleHandler = \Drupal::service('module_handler');
+  if (!$moduleHandler->moduleExists('cucumber_product')) {
+      $moduleHandler->install(['cucumber_product']);
+  }
+}
