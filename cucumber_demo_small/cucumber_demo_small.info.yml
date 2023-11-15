@@ -5,4 +5,4 @@ core_version_requirement: ~10
 package: 'Webship'
 dependencies:
   - cucumber_demos:cucumber_demos
-  - cucumber_project:cucumber_project
+  - cucumber_projects:cucumber_projects
