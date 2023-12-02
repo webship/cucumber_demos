@@ -42,7 +42,7 @@ default:
       pathauto: 1
   field_description:
     -
-      value: 'Webship.co is a company that works with automated functional testing of products (websites), so you can subscribe to their official website and test your site quickly and easily, or you can contact them if you want to get a special test for your site/s.'
+      value: 'Webship.co is a company that works with automated functional testing of products (websites), so you can subscribe to their official website and test your site quickly and easily, or you can contact them if you want to get a special test for your site/s. '
   field_features:
     -
       entity: bef46b9a-eb45-4241-84fa-0d0ebe045456
