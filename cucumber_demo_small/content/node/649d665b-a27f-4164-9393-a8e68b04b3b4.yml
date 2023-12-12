@@ -62,8 +62,8 @@ default:
       entity: 1a5af4e1-e3d3-4d74-861c-d2fbe29da476
       alt: Webship.co
       title: ''
-      width: 48
-      height: 48
+      width: 220
+      height: 220
   field_project_name:
     -
       value: WSCO
