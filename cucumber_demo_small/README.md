@@ -1,3 +1,3 @@
 # Cucumber Demo Small
 
-A small demo content for the Cucumber profile installation website.
+Provides a small demo company size for the Cucumber Automated Functional Acceptance Testing Management system.

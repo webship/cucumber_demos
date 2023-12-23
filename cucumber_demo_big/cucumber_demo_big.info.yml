@@ -1,7 +1,0 @@
-name: 'Cucumber Demo Big'
-type: module
-description: 'A big demo content for the Cucumber profile installation website'
-core_version_requirement: ~10
-package: 'Webship'
-dependencies:
-  - cucumber_demos:cucumber_demos

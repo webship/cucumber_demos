@@ -1,3 +1,3 @@
 # Cucumber Demo Medium
 
-A medium demo content for the Cucumber profile installation website.
+Provides a medium demo company size for the Cucumber Automated Functional Acceptance Testing Management system.

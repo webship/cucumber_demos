@@ -1,0 +1,7 @@
+name: Cucumber Demo Large
+description: Provides a large demo company size for the Cucumber Automated Functional Acceptance Testing Management system.
+type: module
+core_version_requirement: ~10.2.0
+package: Cucumber
+dependencies:
+  - default_content:default_content

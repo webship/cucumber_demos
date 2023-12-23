@@ -1,12 +1,12 @@
 {
   "name": "drupal/cucumber_demos",
   "type": "drupal-module",
-  "description": "Cucumber Demos is a demo content for the Cucumber profile installation website, and includes three levels: Small, Medium, Big content",
+  "description": "Provides demo examples for the Cucumber Automated Functional Acceptance Testing Management system. Including three company sizes: Small, Medium, Large",
   "minimum-stability": "dev",
   "authors": [
     {
-      "name": "Webship",
-      "homepage": "http://webship.org",
+      "name": "Webship.co",
+      "homepage": "http://webship.co",
       "role": "Maintainer"
     }
   ],
@@ -21,6 +21,8 @@
     }
   },
   "require": {
-    "drupal/core": "~10.0"
+    "drupal/core": "~10.2.0",
+    "drupal/webpatches": "~10.0",
+    "drupal/default_content": "~2.0"
   }
 }

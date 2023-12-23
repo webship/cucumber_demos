@@ -1,8 +1,8 @@
-name: 'Cucumber Demo Samll'
+name: Cucumber Demo Small
+description: Provides a small demo company size for the Cucumber Automated Functional Acceptance Testing Management system.
 type: module
-description: 'A small demo content for the Cucumber profile installation website'
-core_version_requirement: ~10
-package: 'Webship'
+core_version_requirement: ~10.2.0
+package: Cucumber
 dependencies:
-  - cucumber_demos:cucumber_demos
-  - cucumber_projects:cucumber_projects
+  - default_content:default_content
+  - cucumber_recipes:cucumber_projects

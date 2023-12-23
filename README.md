@@ -1,7 +1,8 @@
 # Cucumber Demos
 
-Cucumber Demos is a demo content for the Cucumber profile installation website, and includes three levels of demo content:
+Provides demo examples for the Cucumber Automated Functional Acceptance Testing Management system.
 
-- Cucumber Demo Small
-- Cucumber Demo Medium
-- Cucumber Demo Big
+### Including three options:
+* Cucumber Demo Small
+* Cucumber Demo Medium
+* Cucumber Demo Large

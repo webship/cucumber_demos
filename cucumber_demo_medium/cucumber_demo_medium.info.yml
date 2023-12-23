@@ -1,8 +1,9 @@
-name: 'Cucumber Demo Medium'
+name: Cucumber Demo Medium
+description: Provides a medium demo company size for the Cucumber Automated Functional Acceptance Testing Management system.
 type: module
-description: 'A medium demo content for the Cucumber profile installation website'
-core_version_requirement: ~10
-package: 'Webship'
+core_version_requirement: ~10.2.0
+package: Cucumber
 dependencies:
-  - cucumber_demos:cucumber_demos
-  - cucumber_products:cucumber_products
+  - default_content:default_content
+  - cucumber_recipes:cucumber_products
+  - cucumber_recipes:cucumber_projects

@@ -1,7 +1,0 @@
-name: 'Cucumber Demos'
-type: module
-description: 'Cucumber Demos is a demo content for the Cucumber profile installation website, and includes three levels of demo content: Small, Medium, Big content'
-package: Webship
-core_version_requirement: ~10
-dependencies:
-  - default_content:default_content
