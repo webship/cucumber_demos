@@ -68,7 +68,7 @@ removes it from the list of installed modules.
 Install as you would normally install a contributed Drupal module:
 
 ```
-composer require drupal/cucumber_demos drupal/cucumber_recipes
+composer require drupal/cucumber_demos
 drush en cucumber_demo_small
 ```
 
