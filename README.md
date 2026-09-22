@@ -15,9 +15,11 @@ site has something real to look at instead of empty listings.
 
 ## Features
 
-Three modules ship in this package. Each one imports its content with
-[Default Content](https://www.drupal.org/project/default_content) on
-install, from the YAML files under its own `content/` directory.
+Three modules ship in this package. Each one imports its content on
+install with Drupal core's default content importer, the same one
+recipes use. The content lives in a recipe inside the module, at
+`recipes/cucumber-demo-<size>/content/`, and `hook_install()` applies
+that recipe.
 
 | Module | Imports | Depends on |
 |--------|---------|------------|
@@ -35,9 +37,8 @@ media items, and five `feature_directory` taxonomy terms:
 `03-admin-management`, `04-content-structure` and
 `05-content-management`.
 
-**Cucumber Demo Large** currently ships no content. It has no `content/`
-directory, so installing it enables the module and adds nothing to the
-site. It is a placeholder for a large company data set that has not been
+**Cucumber Demo Large** currently ships no content. It has no recipe,
+so installing it enables the module and adds nothing to the site. It is a placeholder for a large company data set that has not been
 written yet.
 
 
@@ -47,14 +48,19 @@ Drupal core `^11.4 || ^12`, plus the packages listed in
 `composer.json`:
 
 - [Webpatches](https://www.drupal.org/project/webpatches)
-- [Default Content](https://www.drupal.org/project/default_content)
+- [Cucumber Core](https://www.drupal.org/project/cucumber_core)
+- [Cucumber Recipes](https://www.drupal.org/project/cucumber_recipes)
 
 The small and medium demos import into the Project and Product content
 types, which come from the Cucumber Recipes modules
-(`cucumber_projects` and `cucumber_products`). Their `info.yml` files
-declare that dependency, but `composer.json` does not require
-[Cucumber Recipes](https://www.drupal.org/project/cucumber_recipes), so
-install it alongside this package.
+(`cucumber_projects` and `cucumber_products`).
+
+The contrib [Default Content](https://www.drupal.org/project/default_content)
+module is no longer needed. Content that a site already imported with
+it keeps its UUIDs, so installing a demo again skips it instead of
+creating duplicates. Sites that had it installed only for these demos
+can uninstall it; if Composer has already removed its code, `drush updb`
+removes it from the list of installed modules.
 
 
 ## Installation
@@ -68,6 +74,15 @@ drush en cucumber_demo_small
 
 Pick one size. Installing more than one is supported - the content sets
 do not overlap - but a site normally wants a single demo.
+
+A demo recipe can also be applied on its own, for example to restore
+deleted demo content on a site that has the module installed:
+
+```
+drush recipe modules/contrib/cucumber_demos/cucumber_demo_small/recipes/cucumber-demo-small
+```
+
+Entities that still exist are left as they are.
 
 
 ## Usage

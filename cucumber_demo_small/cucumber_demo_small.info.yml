@@ -4,5 +4,4 @@ type: module
 core_version_requirement: ^11.4 || ^12
 package: Cucumber
 dependencies:
-  - default_content:default_content
   - cucumber_recipes:cucumber_projects

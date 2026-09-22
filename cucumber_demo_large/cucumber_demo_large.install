@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the Cucumber Demo Large.
+ */
+
+/**
+ * Forget the contrib Default Content module when its code is gone.
+ *
+ * Cucumber Demos no longer depends on default_content. Once Composer drops
+ * the package, a site that had it installed still lists it in
+ * core.extension. It ships no configuration, tables or uninstall hook, so
+ * removing it from the installed modules list is a complete uninstall. When
+ * the code is still there, it is left installed for the site to decide.
+ */
+function cucumber_demo_large_update_11001() {
+  $extension = \Drupal::configFactory()->getEditable('core.extension');
+  if ($extension->get('module.default_content') === NULL) {
+    return t('The Default Content module is not installed. Nothing to do.');
+  }
+
+  if (\Drupal::service('extension.list.module')->exists('default_content')) {
+    return t('The Default Content module is still installed. Cucumber Demo Large no longer needs it, so it can be uninstalled when nothing else uses it.');
+  }
+
+  $extension->clear('module.default_content')->save(TRUE);
+  \Drupal::service('update.update_hook_registry')->deleteInstalledVersion('default_content');
+  return t('Removed the missing Default Content module from the installed modules list.');
+}

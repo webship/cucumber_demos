@@ -1,0 +1,51 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the Cucumber Demo Small.
+ */
+
+use Drupal\Core\Recipe\Recipe;
+use Drupal\Core\Recipe\RecipeRunner;
+
+/**
+ * Implements hook_install().
+ */
+function cucumber_demo_small_install($is_syncing) {
+  // Content is not configuration. A config import already carries the site
+  // it came from, so leave the content alone, as default_content did.
+  if ($is_syncing) {
+    return;
+  }
+
+  // Import the demo content with Drupal core's default content importer.
+  // Recipes import content that already exists (by UUID) as a no-op, so
+  // applying this again, or on a site that imported the same entities with
+  // the contrib default_content module, creates no duplicates.
+  $demo_recipe = Recipe::createFromDirectory(__DIR__ . '/recipes/cucumber-demo-small');
+  RecipeRunner::processRecipe($demo_recipe);
+}
+
+/**
+ * Forget the contrib Default Content module when its code is gone.
+ *
+ * Cucumber Demos no longer depends on default_content. Once Composer drops
+ * the package, a site that had it installed still lists it in
+ * core.extension. It ships no configuration, tables or uninstall hook, so
+ * removing it from the installed modules list is a complete uninstall. When
+ * the code is still there, it is left installed for the site to decide.
+ */
+function cucumber_demo_small_update_11001() {
+  $extension = \Drupal::configFactory()->getEditable('core.extension');
+  if ($extension->get('module.default_content') === NULL) {
+    return t('The Default Content module is not installed. Nothing to do.');
+  }
+
+  if (\Drupal::service('extension.list.module')->exists('default_content')) {
+    return t('The Default Content module is still installed. Cucumber Demo Small no longer needs it, so it can be uninstalled when nothing else uses it.');
+  }
+
+  $extension->clear('module.default_content')->save(TRUE);
+  \Drupal::service('update.update_hook_registry')->deleteInstalledVersion('default_content');
+  return t('Removed the missing Default Content module from the installed modules list.');
+}

@@ -3,5 +3,3 @@ description: Provides a large demo company size for the Cucumber Automated Funct
 type: module
 core_version_requirement: ^11.4 || ^12
 package: Cucumber
-dependencies:
-  - default_content:default_content
