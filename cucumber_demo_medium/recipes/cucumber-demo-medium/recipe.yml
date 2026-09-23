@@ -21,6 +21,12 @@ config:
       - field.storage.node.field_description
       - field.storage.node.field_features
       - field.field.media.feature.field_description
+      # The Feature media items below carry a moderation state. Installing a
+      # module from a recipe runs the configuration installer in syncing mode,
+      # which creates no configuration entities, so the workflow that puts the
+      # Feature media type under content moderation is not there yet and the
+      # content importer fails with "Field moderation_state is unknown".
+      - workflows.workflow.automated_testing
     # The Feature media type of Gherkin Script, its Gherkin script field and
     # the text format that field is written in.
     gherkin:
