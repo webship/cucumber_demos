@@ -1,0 +1,9 @@
+name: 'Cucumber Demo Medium'
+description: 'Gives a site the medium company demo of the Cucumber Automated Functional Acceptance Testing Management system: one Product, forty-one Feature media items with their Gherkin scripts and five feature directory terms.'
+type: install
+recipes:
+  # The demo content, and the Cucumber Products and Projects modules it needs.
+  - cucumber-demo-medium
+install:
+  # Last, after the content it stands for: the Cucumber Demo Medium module.
+  - cucumber_demo_medium

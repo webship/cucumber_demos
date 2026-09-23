@@ -4,12 +4,31 @@ type: Content
 install:
   - cucumber_projects
 config:
-  # The Feature media below fill the Gherkin script field. Installing
-  # Cucumber Core in one go on plain Drupal can skip Gherkin's own text
-  # format, and with it that field, so import both when they are missing.
-  # Configuration a site already has is left as it is.
+  # The content below is created before Cucumber Core has had a chance to set
+  # itself up: a recipe installs modules with the configuration installer in
+  # syncing mode, which creates simple configuration but no configuration
+  # entities (see \Drupal\Core\Recipe\RecipeRunner::installModules()). Import
+  # the configuration the content is made of, and leave alone whatever a site
+  # already has.
   strict: false
   import:
+    # The Feature Directory vocabulary and the shared description and features
+    # field storages of Cucumber Core.
+    cucumber_core:
+      - taxonomy.vocabulary.feature_directory
+      - field.storage.media.field_description
+      - field.storage.node.field_description
+      - field.storage.node.field_features
+      - field.field.media.feature.field_description
+    # The Feature media type of Gherkin Script, its Gherkin script field and
+    # the text format that field is written in.
     gherkin:
       - filter.format.gherkin
+      - editor.editor.gherkin
+      - field.storage.media.field_media_gherkin
+      - media.type.feature
       - field.field.media.feature.field_media_gherkin
+      - core.entity_form_display.media.feature.default
+      - core.entity_view_display.media.feature.default
+    # The Project content type the demo content below is made of.
+    cucumber_projects: '*'

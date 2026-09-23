@@ -1,0 +1,5 @@
+name: 'Cucumber Demo Large'
+description: 'Marks a site as the large company demo of the Cucumber Automated Functional Acceptance Testing Management system. The large demo ships no content of its own yet, so this recipe only installs the Cucumber Demo Large module.'
+type: install
+install:
+  - cucumber_demo_large

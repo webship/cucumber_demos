@@ -1,0 +1,9 @@
+name: 'Cucumber Demo Small'
+description: 'Gives a site the small company demo of the Cucumber Automated Functional Acceptance Testing Management system: one Project with its logo, four Feature media items with their Gherkin scripts and five feature directory terms.'
+type: install
+recipes:
+  # The demo content, and the Cucumber Projects module it needs.
+  - cucumber-demo-small
+install:
+  # Last, after the content it stands for: the Cucumber Demo Small module.
+  - cucumber_demo_small

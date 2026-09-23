@@ -12,18 +12,23 @@ use Drupal\Core\Recipe\RecipeRunner;
  * Implements hook_install().
  */
 function cucumber_demo_small_install($is_syncing) {
-  // Content is not configuration. A config import already carries the site
-  // it came from, so leave the content alone, as default_content did.
-  if ($is_syncing) {
+  // Configuration imports bring their own configuration.
+  if (\Drupal::isConfigSyncing()) {
     return;
   }
 
-  // Import the demo content with Drupal core's default content importer.
-  // Recipes import content that already exists (by UUID) as a no-op, so
+  // When the module is installed on its own, apply its default recipe. When
+  // the default recipe installs the module, the recipe is already applied.
+  //
+  // The recipe imports the demo content with Drupal core's default content
+  // importer. Content is not configuration. A config import already carries
+  // the site it came from, so leave the content alone, as default_content
+  // did. Recipes import content that already exists (by UUID) as a no-op, so
   // applying this again, or on a site that imported the same entities with
   // the contrib default_content module, creates no duplicates.
-  $demo_recipe = Recipe::createFromDirectory(__DIR__ . '/recipes/cucumber-demo-small');
-  RecipeRunner::processRecipe($demo_recipe);
+  if (!$is_syncing) {
+    RecipeRunner::processRecipe(Recipe::createFromDirectory(__DIR__ . '/recipes/default'));
+  }
 }
 
 /**
