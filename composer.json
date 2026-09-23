@@ -2,7 +2,6 @@
   "name": "drupal/cucumber_demos",
   "type": "drupal-module",
   "description": "Provides demo examples for the Cucumber Automated Functional Acceptance Testing Management system. Including three company sizes: Small, Medium, Large",
-  "minimum-stability": "dev",
   "authors": [
     {
       "name": "Webship.co",
@@ -23,7 +22,7 @@
   "require": {
     "drupal/core": "^11.4 || ^12",
     "drupal/webpatches": "~12.0",
-    "drupal/cucumber_core": "12.0.x-dev",
-    "drupal/cucumber_recipes": "12.0.x-dev"
+    "drupal/cucumber_core": "~12.0",
+    "drupal/cucumber_recipes": "~12.0"
   }
 }
