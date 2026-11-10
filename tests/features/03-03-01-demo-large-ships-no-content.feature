@@ -10,4 +10,4 @@ Feature: Cucumber Demo Large ships no demo content yet
     When I navigate to "/admin/content"
     Then I should see "Webship.co"
      And I should see "Varbase"
-     And the table ".views-table" should have 2 rows
+     And the table "#views-form-content-page-1 table, .views-table" should have 2 rows
